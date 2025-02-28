@@ -1,0 +1,94 @@
+---
+
+---
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scriptPython = `import json
+from time import sleep
+
+archivo_json = r"C:\\users\\aurigas\\AppData\\Roaming\\.minecraft\\saves\\STA\\stats\\46a4f5f6-8869-4bca-a9aa-d50389ad5c56.json"
+archivo_salida = "mining.txt"
+INICIO = 4968031
+iniciales_hoy = 5785747
+
+with open(archivo_json, "r", encoding="utf-8") as archivo:
+    datos = json.load(archivo)
+usos_pico = datos["stats"]["minecraft:used"]["minecraft:diamond_pickaxe"]
+usos_pala = datos["stats"]["minecraft:used"]["minecraft:diamond_shovel"]
+usos_totales = usos_pico + usos_pala
+usos_hoy = usos_totales - iniciales_hoy
+print(usos_totales)
+while True:
+    with open(archivo_json, "r", encoding="utf-8") as archivo:
+        datos = json.load(archivo)
+    usos_pico = datos["stats"]["minecraft:used"]["minecraft:diamond_pickaxe"]
+    usos_pala = datos["stats"]["minecraft:used"]["minecraft:diamond_shovel"]
+    usos_totales = usos_pico + usos_pala
+    usos_hoy = usos_totales - iniciales_hoy
+    usos_totales_formateado = "{:,}".format(usos_totales - INICIO).replace(",", ".")
+    usos_hoy_formateado = "{:,}".format(usos_hoy).replace(",", ".")
+    cuerpo = f"Bloques picados: {usos_totales_formateado}/5.000.000 ({round(((usos_totales - INICIO)/5000000) * 100, 
+    2)}%)\\nPicados hoy: {usos_hoy_formateado} ({round(((usos_hoy)/5000000) * 100, 2)}%)"
+    with open(archivo_salida, "w", encoding="utf-8") as salida:
+        salida.write(cuerpo)
+    sleep(1)`;
+
+            document.getElementById("codeBlock").textContent = scriptPython;
+            Prism.highlightElement(document.getElementById("codeBlock"));
+
+            window.copiarCodigo = function() {
+                navigator.clipboard.writeText(scriptPython).then(() => alert("Código copiado!"));
+            }
+
+            window.descargarCodigo = function() {
+                const blob = new Blob([scriptPython], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ScriptAurigas.py';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        });
+    </script>
+</head>
+<body class="flex flex-col items-center p-4 md:p-6 lg:p-8 bg-gray-900 text-white min-h-screen">
+    <div class="w-full max-w-6xl">
+        <div class="flex justify-center items-center gap-4 md:gap-6">
+            <h1 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-4 md:mb-6 text-center">SCRIPT DE MINAR</h1>
+            <img src="/logo.png" alt="Logo" class="w-20" />
+        </div>
+        
+        <div class="code-container bg-gray-800 rounded-lg shadow-xl overflow-hidden mx-auto">
+            <pre class="overflow-x-auto p-3 md:p-4 lg:p-5 text-xs md:text-sm lg:text-base"><code id="codeBlock" class="language-python !whitespace-pre-wrap"></code></pre>
+        </div>
+
+        <style>
+            h1 {
+                font-family: "Concert One", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+        </style>
+
+        <div class="mt-4 mb-10 md:mt-6 flex flex-col md:flex-row justify-center gap-3 md:gap-4">
+            <button class="bg-white/90 px-5 py-2.5 rounded-lg text-lg text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="copiarCodigo()">
+                📋 Copiar Script
+            </button>
+            <button class="bg-white/90 px-5 py-2.5 rounded-lg duration-200 text-lg text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="descargarCodigo()">
+                ⬇️ Descargar Script
+            </button>
+        </div>
+    </div>
+</body>
