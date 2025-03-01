@@ -1,14 +1,6 @@
----
-
----
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script>
@@ -28,6 +20,7 @@ usos_pala = datos["stats"]["minecraft:used"]["minecraft:diamond_shovel"]
 usos_totales = usos_pico + usos_pala
 usos_hoy = usos_totales - iniciales_hoy
 print(usos_totales)
+
 while True:
     with open(archivo_json, "r", encoding="utf-8") as archivo:
         datos = json.load(archivo)
@@ -38,7 +31,7 @@ while True:
     usos_totales_formateado = "{:,}".format(usos_totales - INICIO).replace(",", ".")
     usos_hoy_formateado = "{:,}".format(usos_hoy).replace(",", ".")
     cuerpo = f"Bloques picados: {usos_totales_formateado}/5.000.000 ({round(((usos_totales - INICIO)/5000000) * 100, 
-    2)}%)\\nPicados hoy: {usos_hoy_formateado} ({round(((usos_hoy)/5000000) * 100, 2)}%)"
+             2)}%)\\nPicados hoy: {usos_hoy_formateado} ({round(((usos_hoy)/5000000) * 100, 2)}%)"
     with open(archivo_salida, "w", encoding="utf-8") as salida:
         salida.write(cuerpo)
     sleep(1)`;
@@ -63,7 +56,7 @@ while True:
         });
     </script>
 </head>
-<body class="flex flex-col items-center p-4 md:p-6 lg:p-8 bg-gray-900 text-white min-h-screen">
+<body class="flex flex-col items-center p-4 md:p-6 lg:p-8 text-white min-h-screen">
     <div class="w-full max-w-6xl">
         <div class="flex justify-center items-center gap-4 md:gap-6">
             <h1 class="text-2xl md:text-3xl lg:text-6xl font-bold mb-4 md:mb-6 text-center">SCRIPT DE MINAR</h1>
@@ -81,6 +74,13 @@ while True:
                 font-style: normal;
             }
         </style>
+
+        <div class="mt-4 p-4 bg-white/90 rounded-lg">
+            <p class="text-lg text-black flex items-center">
+                <i class="fas fa-info-circle mr-2"></i>
+                ¡No olvides cambiar la ruta del json de estadisticas y los valores iniciales!
+            </p>
+        </div>
 
         <div class="mt-4 mb-8 2xl:mb-4 md:mt-6 flex flex-col md:flex-row justify-center gap-3 md:gap-4">
             <button class="bg-white/90 px-5 py-2.5 rounded-lg text-lg text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="copiarCodigo()">
