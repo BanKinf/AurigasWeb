@@ -4,4 +4,4 @@
 ![image](https://github.com/user-attachments/assets/e1c2e458-8d44-4161-bd7f-5ff4d23b4c1c)
 
 ## 🛠️ Stack Dev
-[![My Skills](https://skillicons.dev/icons?i=astro,react,tailwind,threejs,js,html,css)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=astro,tailwind,ts,html,css)](https://skillicons.dev)
