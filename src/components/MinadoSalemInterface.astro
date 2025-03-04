@@ -16,7 +16,6 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
                 font-style: normal;
             }
         </style>
-        
         <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
@@ -46,7 +45,7 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 <a 
-                                    href={link} 
+                                    href={String(link)} 
                                     target="_blank" 
                                     class="text-indigo-600 hover:text-indigo-900 flex items-center"
                                     rel="noopener noreferrer"
@@ -60,6 +59,18 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
                     ))}
                 </tbody>
             </table>
+        </div>
+        <div class="mt-12 p-8 bg-gradient-to-br from-purple-500/80 to-indigo-600/80 text-white rounded-2xl shadow-xl text-center">
+            <h2 class="text-3xl font-extrabold mb-4 flex items-center justify-center gap-2">
+                <i class="fas fa-code"></i> Script de Minado
+            </h2>
+            <p class="text-lg text-white/90 mb-6">
+                Controla en tiempo real cuántos bloques has minado y cuánto te falta para terminar.  
+                Descárgalo o revísalo aquí.  
+            </p>
+            <a href="/script-minado" class="inline-flex items-center gap-3 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-gray-200 transition-transform transform hover:scale-105">
+                <i class="fas fa-file-code text-2xl"></i> Ver Script
+            </a>
         </div>
     </div>
 </body>
