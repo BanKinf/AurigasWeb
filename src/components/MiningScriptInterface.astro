@@ -36,8 +36,11 @@ while True:
         salida.write(cuerpo)
     sleep(1)`;
 
-            document.getElementById("codeBlock").textContent = scriptPython;
-            Prism.highlightElement(document.getElementById("codeBlock"));
+            const codeBlock = document.getElementById("codeBlock") as HTMLElement;
+            if (codeBlock) {
+                codeBlock.textContent = scriptPython;
+                Prism.highlightElement(codeBlock);
+            }
 
             window.copiarCodigo = function() {
                 navigator.clipboard.writeText(scriptPython).then(() => alert("Código copiado!"));
@@ -79,17 +82,17 @@ while True:
         </style>
 
         <div class="mt-4 p-4 bg-white/90 rounded-lg">
-            <p class="text-lg text-black flex items-center">
+            <p class="text-ms text-black flex items-center">
                 <i class="fas fa-info-circle mr-2"></i>
                 ¡No olvides cambiar la ruta del json de estadisticas y los valores iniciales!
             </p>
         </div>
 
         <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-center gap-3 md:gap-4">
-            <button class="bg-white/90 px-5 py-2.5 rounded-lg text-lg text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="copiarCodigo()">
+            <button class="bg-white/90 px-5 py-2.5 rounded-lg text-base text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="copiarCodigo()">
                 📋 Copiar Script
             </button>
-            <button class="bg-white/90 px-5 py-2.5 rounded-lg text-lg text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="descargarCodigo()">
+            <button class="bg-white/90 px-5 py-2.5 rounded-lg text-base text-black font-semibold hover:transition-transform hover:scale-105 hover:duration-200 cursor-pointer" onclick="descargarCodigo()">
                 ⬇️ Descargar Script
             </button>
         </div>
