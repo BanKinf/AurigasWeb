@@ -18,7 +18,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
 }));
 ---
 
-<div class="max-w-6xl mx-auto p-8">
+<div class="max-w-6xl mx-auto px-8 pt-5">
   <div class="flex">
     <h1 class="text-5xl font-bold mb-6">STREAMS DE MINAR - SALEM</h1>
     <img src="./logo.png" alt="Aurigas Logo" class="w-24" />
@@ -38,18 +38,46 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
     </div>
   </div>
 
-  <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
+  <div class="rounded-lg shadow-lg overflow-x-auto">
     <table id="minadoTable" class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
         <tr>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stream</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duración</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bloques</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Acumulado</th>
+          <th data-sort="num" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex items-center">
+              Stream
+              <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
+                <i class="fas fa-arrow-up"></i>
+              </span>
+            </div>
+          </th>
+          <th data-sort="tiempo" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex items-center">
+              Duración
+              <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
+                <i class="fas fa-arrow-up"></i>
+              </span>
+            </div>
+          </th>
+          <th data-sort="bloques" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex items-center">
+              Bloques
+              <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
+                <i class="fas fa-arrow-up"></i>
+              </span>
+            </div>
+          </th>
+          <th data-sort="total" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex items-center">
+              Total Acumulado
+              <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
+                <i class="fas fa-arrow-up"></i>
+              </span>
+            </div>
+          </th>
           <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Enlace</th>
         </tr>
       </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
+      <tbody id="minadoTbody" class="bg-white divide-y divide-gray-200">
         {minadoData.map(({ num, tiempo, bloques, total, link }) => (
           <tr class="hover:bg-gray-50 transition-colors">
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#{num}</td>
@@ -93,7 +121,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
   
   <div id="minadoData" data-minado={JSON.stringify(minadoData)} class="hidden"></div>
 
-  <div class="mt-10 p-6 bg-gradient-to-br from-purple-500/80 to-indigo-600/80 text-white rounded-2xl shadow-xl text-center">
+  <div class="mt-10 p-6 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-2xl shadow-xl text-center">
     <h2 class="text-3xl font-extrabold mb-4 flex items-center justify-center gap-2">
       <i class="fas fa-code"></i> Script de Minado
     </h2>
@@ -129,11 +157,122 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
     document.body.style.paddingRight = '';
   }
 
+  function parseDuration(t: string): number {
+    const parts = t.split(':').map(Number);
+    return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const openModalBtn = document.getElementById('openModalBtn') as HTMLButtonElement;
     const closeModalBtn = document.getElementById('closeModalBtn') as HTMLButtonElement;
     const modalOverlay = document.getElementById('modalOverlay') as HTMLDivElement;
     const minadoDataElement = document.getElementById('minadoData') as HTMLDivElement;
+    const tbody = document.getElementById('minadoTbody') as HTMLTableSectionElement;
+
+    let tableData = JSON.parse(minadoDataElement?.dataset.minado || "[]") as MinadoData[];
+    let currentSort = { column: '', ascending: true };
+
+    function renderTable(data: MinadoData[]) {
+      tbody.innerHTML = data.map(row => {
+        return `
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#${row.num}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <i class="fas fa-stopwatch mr-2 text-purple-500"></i>
+              ${row.tiempo}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">
+              <i class="fas fa-cube mr-2 text-blue-500"></i>
+              ${row.bloques}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-emerald-600 font-bold">
+              <i class="fas fa-layer-group mr-2 text-green-500"></i>
+              ${row.total}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">
+              <a href="${row.link}" target="_blank" class="text-indigo-600 hover:text-indigo-900 flex items-center" rel="noopener noreferrer">
+                <i class="fab fa-twitch mr-2"></i>
+                Ver sesión
+                <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function updateHeaderStyles() {
+      document.querySelectorAll('th[data-sort]').forEach(header => {
+        const col = header.getAttribute('data-sort');
+        const arrow = header.querySelector('.sort-arrow') as HTMLElement;
+        if (col === currentSort.column) {
+          header.classList.add('text-indigo-600');
+          if (arrow) {
+            arrow.style.opacity = "1";
+            if (!currentSort.ascending) {
+              arrow.classList.add('rotate-180');
+            } else {
+              arrow.classList.remove('rotate-180');
+            }
+          }
+        } else {
+          header.classList.remove('text-indigo-600');
+          if (arrow) {
+            arrow.style.opacity = "0";
+            arrow.classList.remove('rotate-180');
+          }
+        }
+      });
+    }
+
+    function sortTable(column: string) {
+      if (currentSort.column === column) {
+        currentSort.ascending = !currentSort.ascending;
+      } else {
+        currentSort.column = column;
+        currentSort.ascending = true;
+      }
+
+      tableData.sort((a, b) => {
+        let aVal, bVal;
+        switch(column) {
+          case 'num':
+            aVal = a.num;
+            bVal = b.num;
+            break;
+          case 'tiempo':
+            aVal = parseDuration(a.tiempo);
+            bVal = parseDuration(b.tiempo);
+            break;
+          case 'bloques':
+            aVal = parseInt(a.bloques.replace(/\./g, ''), 10);
+            bVal = parseInt(b.bloques.replace(/\./g, ''), 10);
+            break;
+          case 'total':
+            aVal = parseInt(a.total.replace(/\./g, ''), 10);
+            bVal = parseInt(b.total.replace(/\./g, ''), 10);
+            break;
+          default:
+            aVal = 0;
+            bVal = 0;
+        }
+        return currentSort.ascending ? (aVal - bVal) : (bVal - aVal);
+      });
+
+      updateHeaderStyles();
+      renderTable(tableData);
+    }
+
+    document.querySelectorAll('th[data-sort]').forEach(header => {
+      header.addEventListener('click', () => {
+        const column = header.getAttribute('data-sort');
+        if (column) {
+          sortTable(column);
+        }
+      });
+    });
+
+    renderTable(tableData);
 
     openModalBtn?.addEventListener('click', () => {
       if (!Chart) {
