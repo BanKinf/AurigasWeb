@@ -111,25 +111,29 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
     </table>
   </div>
   
-  <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-lg hover:bg-gray-300">
+  <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-sm hover:bg-gray-300">
     Mostrar Gráfica
   </button>
   
-  <button id="exportCsvBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-lg hover:bg-gray-300 transition-transform">
+  <button id="exportCsvBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-sm hover:bg-gray-300 transition-transform">
     Exportar CSV
   </button>
   
   <div id="minadoData" data-minado={JSON.stringify(minadoData)} class="hidden"></div>
 
-  <div class="mt-10 p-6 bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-2xl shadow-xl text-center">
+  <div class="mt-10 p-6 bg-gradient-to-b from-gray-900/80 to-blue-950 text-white 
+              rounded-lg shadow-lg text-center">
     <h2 class="text-3xl font-extrabold mb-4 flex items-center justify-center gap-2">
       <i class="fas fa-code"></i> Script de Minado
     </h2>
     <p class="text-lg text-white/90 mb-6">
       Controla cuántos bloques has minado y cuánto te falta para terminar, al igual que Aurigas.  
-      Descárgalo o revísalo aquí.  
+      Descárgalo o revísalo aquí.
     </p>
-    <a href="/script-minado" class="inline-flex items-center gap-3 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-gray-200 hover:transition-transform hover:scale-105">
+    <a href="/script-minado"
+      class="inline-flex items-center gap-3 bg-white text-gray-900 px-6 py-3 
+              rounded-md font-semibold text-lg shadow-md 
+              hover:bg-gray-200 hover:transition-transform hover:scale-105">
       <i class="fas fa-file-code text-2xl"></i> Ver Script
     </a>
   </div>
