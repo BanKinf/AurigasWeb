@@ -6,7 +6,7 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
     <div class="max-w-6xl mx-auto">
         <div class="flex">
             <h1 class="text-5xl font-bold mb-6">STREAMS DE MINAR - SALEM</h1>
-            <img src="./logo.png " alt="Aurigas Logo" class="w-24" />
+            <img src="./logo.png" alt="Aurigas Logo" class="w-24" />
         </div>
         <style>
             h1 {
@@ -24,7 +24,7 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
         </div>
 
         <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
+            <table id="minadoTable" class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stream</th>
@@ -72,14 +72,18 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
             Mostrar Gráfica
         </button>
         
+        <button id="exportCsvBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-lg hover:bg-gray-300 transition-transform">
+            Exportar CSV
+        </button>
+        
         <div id="minadoData" data-minado={JSON.stringify(MinadoSalemData)} class="hidden"></div>
 
-        <div class="mt-10 p-8 bg-gradient-to-br from-purple-500/80 to-indigo-600/80 text-white rounded-2xl shadow-xl text-center">
+        <div class="mt-10 p-6 bg-gradient-to-br from-purple-500/80 to-indigo-600/80 text-white rounded-2xl shadow-xl text-center">
             <h2 class="text-3xl font-extrabold mb-4 flex items-center justify-center gap-2">
                 <i class="fas fa-code"></i> Script de Minado
             </h2>
             <p class="text-lg text-white/90 mb-6">
-                Controla en tiempo real cuántos bloques has minado y cuánto te falta para terminar, al igual que Aurigas.  
+                Controla cuántos bloques has minado y cuánto te falta para terminar, al igual que Aurigas.  
                 Descárgalo o revísalo aquí.  
             </p>
             <a href="/script-minado" class="inline-flex items-center gap-3 bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-gray-200 hover:transition-transform hover:scale-105">
@@ -156,6 +160,46 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
                 }
             });
         }
+
+        function exportTableToCSV(filename: string) {
+            const csv: string[] = [];
+            const table = document.getElementById("minadoTable") as HTMLTableElement;
+            const rows = table.querySelectorAll("tr");
+
+            rows.forEach(row => {
+                const cols = row.querySelectorAll("th, td");
+                const rowData: string[] = [];
+                cols.forEach(col => {
+                    let data = "";
+                    const linkElem = col.querySelector("a");
+                    if (linkElem) {
+                        data = (linkElem as HTMLAnchorElement).href;
+                    } else {
+                        data = col.textContent?.trim() || "";
+                    }
+                    data = data.replace(/(\r\n|\n|\r)/gm, " ").replace(/"/g, '""');
+                    if (data.indexOf(",") > -1) {
+                        data = `"${data}"`;
+                    }
+                    rowData.push(data);
+                });
+                csv.push(rowData.join(","));
+            });
+
+            const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+            const tempLink = document.createElement("a");
+            tempLink.download = filename;
+            tempLink.href = window.URL.createObjectURL(csvFile);
+            tempLink.style.display = "none";
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        }
+
+        const exportCsvBtn = document.getElementById('exportCsvBtn') as HTMLButtonElement;
+        exportCsvBtn.addEventListener('click', () => {
+            exportTableToCSV("minado.csv");
+        });
     });
     </script>
 </body>
