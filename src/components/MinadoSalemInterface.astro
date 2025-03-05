@@ -68,7 +68,7 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
             </table>
         </div>
         
-        <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-lg hover:bg-gray-300 transition-transform active:scale-90">
+        <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-lg hover:bg-gray-300 transition-transform">
             Mostrar Gráfica
         </button>
         
@@ -87,7 +87,6 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
             </a>
         </div>
     </div>
-
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const chartScript = document.createElement("script");
@@ -95,33 +94,38 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
         chartScript.onload = () => { console.log("Chart.js cargado"); };
         document.body.appendChild(chartScript);
 
-        document.getElementById('openModalBtn').addEventListener('click', () => {
+        const openModalBtn = document.getElementById('openModalBtn') as HTMLButtonElement;
+        const closeModalBtn = document.getElementById('closeModalBtn') as HTMLButtonElement;
+        const modalOverlay = document.getElementById('modalOverlay') as HTMLDivElement;
+        const minadoDataElement = document.getElementById('minadoData') as HTMLDivElement;
+
+        openModalBtn.addEventListener('click', () => {
             if (typeof Chart === "undefined") {
                 console.error("Chart.js no está disponible aún.");
                 return;
             }
-            document.getElementById('modalOverlay').classList.remove('hidden');
+            modalOverlay.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             crearGrafica();
         });
 
-        document.getElementById('closeModalBtn').addEventListener('click', () => {
-            document.getElementById('modalOverlay').classList.add('hidden');
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('hidden');
             document.body.style.overflow = '';
         });
 
         function crearGrafica() {
-            const minadoData = JSON.parse(document.getElementById("minadoData").dataset.minado);
-            function parseBlocks(str) {
+            const minadoData = JSON.parse(minadoDataElement.dataset.minado!);
+            function parseBlocks(str: string) {
                 return parseInt(str.replace(/\./g, ''), 10);
             }
 
-            const labels = minadoData.map(row => `Stream ${row[0]}`);
-            const bloquesPicados = minadoData.map(row => parseBlocks(row[2]));
-            const tiempos = minadoData.map(row => row[1]);
+            const labels = minadoData.map((row: any) => `Stream ${row[0]}`);
+            const bloquesPicados = minadoData.map((row: any) => parseBlocks(row[2]));
+            const tiempos = minadoData.map((row: any) => row[1]);
 
-            const ctx = document.getElementById('minadoChart').getContext('2d');
-            new Chart(ctx, {
+            const ctx = (document.getElementById('minadoChart') as HTMLCanvasElement).getContext('2d');
+            new Chart(ctx!, {
                 type: 'bar',
                 data: {
                     labels: labels,
@@ -138,7 +142,7 @@ import { MinadoSalemData } from '../data/minadoSalemData.ts';
                         title: { display: true, text: 'Bloques Picados por Stream' },
                         tooltip: {
                             callbacks: {
-                                afterBody: (context) => {
+                                afterBody: (context: any) => {
                                     const index = context[0].dataIndex;
                                     return `Tiempo: ${tiempos[index]}`;
                                 }
