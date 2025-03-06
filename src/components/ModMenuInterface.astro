@@ -13,7 +13,7 @@ import { mods } from "../data/modData.ts";
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {mods.map((mod) => (
           <div
-            key={mod.name}
+            id={mod.name}
             class="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105"
           >
             <img
@@ -30,7 +30,7 @@ import { mods } from "../data/modData.ts";
                 href={mod.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-2 inline-block text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+                class="mt-3 inline-block text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
               >
                 Ver detalles
               </a>
