@@ -1,27 +1,26 @@
 ---
 import '../styles/global.css'
 import Footer from '../components/Footer.astro' 
+import OpenGraph from '../components/OpenGraph.astro'
 ---
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Descubre a Aurigas, streamer & youtuber de Minecraft enfocado en proyectos técnicos e innovadores. Conoce en detalle su contenido y las últimas novedades de sus iniciativas en este sitio web." />
 		<meta name="author" content="Aurigas" />
 		<meta name="keywords" content="Aurigas, Minecraft, Mods, Survival, Mining" />
 		<meta name="theme-color" content="#050c1a" />
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
 		<meta name="google" content="notranslate" />
+		<OpenGraph />
 		<link rel="icon" type="image/png" href="/images/favicon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		
-		<meta name="generator" content={Astro.generator} />
-		<title>Aurigas - WebSite</title>
 	</head>
 	<body>
 		<slot />	
