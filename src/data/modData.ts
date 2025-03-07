@@ -26,7 +26,7 @@ export const mods: ModData[] = [
   },
   {
     name: "Minihud",
-    link: "/images/mods/replaymod.webp",
+    link: "https://modrinth.com/mod/minihud",
     author:"Masa",
     image: "/images/mods/minihud.webp",
   },
