@@ -2,41 +2,25 @@
 import { mods } from "../data/modData.ts";
 ---
 
-<body class="bg-gradient-to-br from-gray-50 to-gray-100">
-    <main class="container mx-auto p-8">
-      <header class="mb-12 text-center">
-        <h1 class="text-5xl font-bold">Listado de Mods STA</h1>
-        <p class="text-lg text-white/70 mt-1">
-          Descubre y explora los mods que utiliza aurigas en su survival
-        </p>
-      </header>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {mods.map((mod) => (
-          <div
-            id={mod.name}
-            class="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105"
-          >
-            <img
-              src={mod.image}
-              alt={mod.name}
-              class="w-full h-48 object-contain rounded-lg p-4 bg-gray-100"
-            />
-            <div class="p-4">
-              <h2 class="text-2xl font-semibold text-gray-700">
-                {mod.name}
-              </h2>
-              <p class="text-gray-500">{mod.author}</p>
-              <a
-                href={mod.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-3 inline-block text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
-              >
-                Ver detalles
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+<body class="bg-[#050c1a] text-white">
+    <main class="container mx-auto px-8 md:px-20 pt-8">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Listado de Mods STA</h1>
+            <p class="text-base md:text-lg text-white/60 mt-2">Descubre y explora los mods que utiliza Aurigas en su survival</p>
+        </header>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {mods.map((mod) => (
+                <div class="bg-[#0a1224] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <img src={mod.image} alt={mod.name} class=" h-48 object-contain p-5 bg-[#121a2e] w-full" />
+                    <div class="p-5">
+                        <h2 class="text-2xl font-semibold text-white">{mod.name}</h2>
+                        <p class="text-white/60">{mod.author}</p>
+                        <a href={mod.link} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                            <i class="fas fa-external-link-alt"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </div>
     </main>
 </body>
