@@ -1,5 +1,5 @@
 ---
-import { MinadoSalemData } from '../data/minadoSalemData.ts';
+import { MinadoSalemData } from '@/data/minadoSalemData.ts';
 
 interface MinadoData {
   num: number;
@@ -25,16 +25,9 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
 
 <div class="max-w-6xl mx-auto px-8 pt-5">
   <div class="flex">
-    <h1 class="text-5xl font-bold mb-6">STREAMS DE MINAR - SALEM</h1>
+    <h1 class="text-5xl font-ConcertOne mb-6">STREAMS DE MINAR - SALEM</h1>
     <img src="/images/emotes/auri-vanilla.webp" alt="Aurigas Logo" class="w-24" />
   </div>
-  <style>
-    h1 {
-      font-family: "Concert One", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-  </style>
 
   <div id="modalOverlay" class="fixed inset-0 bg-black/85 flex items-center justify-center hidden">
     <div class="bg-white rounded-lg shadow-lg relative p-4 max-w-4xl w-full">

@@ -1,0 +1,24 @@
+---
+import { mods } from "@/data/modData.ts";
+---
+
+<section class="container mx-auto px-8 md:px-20 pt-8">
+    <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">Listado de Mods STA</h1>
+        <p class="text-base md:text-lg text-white/60 mt-2">Descubre y explora los mods que utiliza Aurigas en su survival</p>
+    </header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {mods.map((mod) => (
+            <div class="bg-[#0a1224] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <img src={mod.image} alt={mod.name} class=" h-48 object-contain p-5 bg-[#121a2e] w-full" />
+                <div class="p-5">
+                    <h2 class="text-2xl font-semibold text-white">{mod.name}</h2>
+                    <p class="text-white/60">{mod.author}</p>
+                    <a href={mod.link} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                        <i class="fas fa-external-link-alt"></i> Ver detalles
+                    </a>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
