@@ -1,0 +1,123 @@
+---
+import NewCard from '../components/NewCard.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import SidebarLink from '../components/SidebarLink.astro';
+import DiscordLink from '../components/DiscordLink.astro';
+import { news } from '@/data/newsData.ts';
+---
+
+<section class="container mx-auto px-4 md:max-w-5xl 2xl:max-w-7xl pt-8 md:pt-14">
+  <div class="flex flex-col gap-8 md:hidden">
+    <div class="my-4">
+      <h1 class="text-4xl font-medium mb-2">Bienvenido! 👋</h1>
+      <p class="text-lg font-light text-gray-300">
+        Esta web esta creada con el fin de compartir información 
+        sobre el streamer & youtuber <a href="https://twitter.com/_aurigas_" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300">@Aurigas</a>.
+      </p>
+    </div>
+    <aside class="flex flex-col">
+      <div class="flex flex-col items-center mb-8">
+        <div class="w-60 h-60 rounded-4xl overflow-hidden mb-3">
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPz43q8rv6rb8kRpQl9n5zcaJwofmqrA4Xg&s" 
+            alt="Aurigas Avatar" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="flex gap-6 mt-2">
+          <SocialIcon platform="twitter" href="https://twitter.com/_Aurigas_" />
+          <SocialIcon platform="youtube" href="https://youtube.com/@Aurigas" />
+          <SocialIcon platform="twitch" href="https://twitch.tv/Aurigas" />
+        </div>
+      </div>
+  
+      <div class="flex w-full justify-center gap-8 my-6">
+        <nav class="space-y-2">
+          <SidebarLink href="/proyectos" icon="arrow-right">Proyectos</SidebarLink>
+          <SidebarLink href="/mods" icon="arrow-right">Mods</SidebarLink>
+          <SidebarLink href="/archive" icon="arrow-right">Archive</SidebarLink>
+        </nav>
+        <div class="bg-gray-600 h-32 w-[1px] "/>
+        <div class="space-y-3">
+          <DiscordLink href="https://discord.gg/kcqHJDu">Aurigas comunidad</DiscordLink>
+          <DiscordLink href="https://discord.gg/jJ8fC7pTxk">Aurum SMP</DiscordLink>
+          <a href="https://vultam.net/aurigas" target="_blank" rel="noopener noreferrer">
+            <img src="/images/logo-vultam.png" alt="logo de la empresa vultam hosting, patrocinador oficial de Aurigas." class="w-24 opacity-70 hover:opacity-100">
+          </a>
+        </div>
+      </div>
+    </aside>
+    <div class="p-6">
+      <h2 class="text-lg mb-6 pb-2 border-b border-gray-700 text-gray-400">Ultimas novedades</h2>
+      <div class="h-[calc(100vh-250px)] overflow-y-auto pr-2 custom-scrollbar">
+        <div class="space-y-8">
+          {news.map(newS => (
+            <NewCard 
+              title={newS.title}
+              description={newS.description}
+              image={newS.image}
+              alt={newS.alt}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden md:flex gap-8">
+    <aside class="w-64 flex flex-col">
+      <div class="flex flex-col items-center mb-5">
+        <div class="w-60 h-60 rounded-4xl overflow-hidden mb-3">
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPz43q8rv6rb8kRpQl9n5zcaJwofmqrA4Xg&s" 
+            alt="Aurigas Avatar" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="flex gap-6 mt-2">
+          <SocialIcon platform="twitter" href="https://twitter.com/_aurigas_" />
+          <SocialIcon platform="youtube" href="https://youtube.com/@Aurigas" />
+          <SocialIcon platform="twitch" href="https://twitch.tv/Aurigas" />
+        </div>
+      </div>
+      <nav class="space-y-2">
+        <SidebarLink href="/proyectos" icon="arrow-right">Proyectos</SidebarLink>
+        <SidebarLink href="/mods" icon="arrow-right">Mods</SidebarLink>
+        <SidebarLink href="/archive" icon="arrow-right">Archive</SidebarLink>
+      </nav>
+      <div class="bg-gray-600 h-[1px] my-5"/>
+      <div class="space-y-1">
+        <DiscordLink href="https://discord.gg/kcqHJDu">Aurigas comunidad</DiscordLink>
+        <DiscordLink href="https://discord.gg/jJ8fC7pTxk">Aurum SMP</DiscordLink>
+      </div>
+      <div class="bg-gray-600 h-[1px] my-5"/>
+      <a href="https://vultam.net/aurigas" target="_blank" rel="noopener noreferrer">
+        <img src="/images/logo-vultam.png" alt="logo de la empresa vultam hosting, patrocinador oficial de Aurigas." class="w-24 opacity-70 hover:opacity-100">
+      </a>
+    </aside>
+    <main class="flex-1">
+      <div class="my-12">
+        <h1 class="text-5xl font-medium mb-2">Bienvenido! 👋</h1>
+        <p class="text-xl font-light text-gray-300">
+          Esta web esta creada con el fin de compartir información 
+          sobre el streamer & youtuber <a href="https://twitter.com/_aurigas_" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-500">@Aurigas</a>.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-lg mb-6 pb-0.5 border-b border-gray-700 text-gray-400">Ultimas novedades</h2>
+        <div class="h-[calc(85vh-250px)] overflow-y-auto pr-2 custom-scrollbar">
+          <div class="space-y-6">
+            {news.map(newS => (
+              <NewCard 
+                title={newS.title}
+                description={newS.description}
+                image={newS.image}
+                alt={newS.alt}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>

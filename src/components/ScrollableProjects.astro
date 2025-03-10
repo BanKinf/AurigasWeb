@@ -1,0 +1,29 @@
+---
+import NewCard from './NewCard.astro';
+
+interface New {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+interface Props {
+  news: New[];
+}
+
+const { news } = Astro.props;
+---
+
+<div class="h-[calc(100vh-250px)] overflow-y-auto pr-2 custom-scrollbar">
+  <div class="space-y-8">
+    {news.map(newS => (
+      <NewCard 
+        title={newS.title}
+        description={newS.description}
+        image={newS.image}
+        alt={newS.alt}
+      />
+    ))}
+  </div>
+</div>

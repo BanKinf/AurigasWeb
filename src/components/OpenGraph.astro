@@ -1,4 +1,14 @@
-<title>Aurigas WebSite</title>
+---
+interface Props {
+  title?: string
+}
+
+const { title } = Astro.props
+
+const webTitle =  title ? `Aurigas - ${title}` : "Aurigas - WebSite"
+---
+
+<title>{webTitle}</title>
 <meta name="description" content="Descubre a Aurigas, streamer & youtuber de Minecraft enfocado en proyectos técnicos e innovadores. Conoce en detalle su contenido y las últimas novedades de sus iniciativas en este sitio web.">
 
 <!-- Facebook, Discord, Skype Meta Tags -->
