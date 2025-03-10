@@ -4,9 +4,10 @@ interface Props {
   description: string;
   image: string;
   alt: string;
+  hrefButton: string;
 }
 
-const { title, description, image, alt } = Astro.props;
+const { title, description, image, alt, hrefButton } = Astro.props;
 ---
 
 <div class="flex flex-col md:flex-row gap-4 p-4 bg-[#0a1224] rounded-lg min-h-50">
@@ -21,9 +22,9 @@ const { title, description, image, alt } = Astro.props;
       />
     </div>
     <p class="text-gray-300 mb-4">{description}</p>
-    <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm transition cursor-pointer hover:scale-105">
+    <a href={hrefButton} target="_blank" rel="noopener noreferrer" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded text-sm transition cursor-pointer hover:scale-105">
       Saber más
-    </button>
+    </a>
   </div>
 
   <div class="hidden md:block w-36 h-36 md:my-auto md:mx-4 hover:transition-transform hover:scale-105 cursor-pointer">
