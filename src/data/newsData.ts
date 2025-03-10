@@ -7,8 +7,8 @@ export const news = [
     hrefButton: "https://www.youtube.com/playlist?list=PLTa5p56dEkq8roAe58mMPWC8nbD3ammd1"
   },
   {
-    title: "ALMACEN PRINCIPAL",
-    description: "Aurigas empezó a desarrollar su almacén principal en stream, la idea es que sea full codificado con la posibiliad de poner un monton de perfiericos!.",
+    title: "ALMACEN GENERAL",
+    description: "Aurigas empezó a desarrollar su almacén general en stream, la idea es que sea full codificado con la posibilidad de poner un monton de perifericos!.",
     image: "/images/news/main-storage.png",
     alt: "Almacén Principal",
     hrefButton: "https://www.youtube.com/playlist?list=PLTa5p56dEkq_-gSWH8Ir1UyPIp_w2inB6"
