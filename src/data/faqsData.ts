@@ -25,6 +25,6 @@ export const faqs = [
     },
     {
         question: "¿Comó colocas bloques tan rapido?",
-        answer: 'Para poner bloques asi de rapido utilizo una tecla asignada al click derecho, es decir en el menu de configuracion en vez de tener el click derecho asignado para colocar bloques tengo la tecla R en su lugar y asi manteniendola puedo poner muchos bloques por segundo, si quieres saber mas mira este clip: <iframe src="https://clips.twitch.tv/embed?clip=FaithfulDarkBeefOneHand-wwfFRtsnAe5GGYso&parent=aurigas.es" frameborder="0" allowfullscreen="true" scrolling="no" height="250" width="460" class="mt-4"></iframe>'
+        answer: "Para poner bloques asi de rapido utilizo una tecla asignada al click derecho, es decir en el menu de configuracion en vez de tener el click derecho asignado para colocar bloques tengo la tecla R en su lugar y asi manteniendola puedo poner muchos bloques por segundo, si quieres saber mas entra a <a href='https://www.twitch.tv/aurigas/clip/FaithfulDarkBeefOneHand-wwfFRtsnAe5GGYso' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
     }
 ];

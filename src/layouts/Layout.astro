@@ -2,6 +2,7 @@
 import '@/styles/global.css'
 import Footer from '@/components/Footer.astro' 
 import OpenGraph from '@/components/OpenGraph.astro'
+import HomeButton from '@/components/HomeButton.astro';
 
 interface Props {
 	title?: string
@@ -53,7 +54,8 @@ const { title } = Astro.props;
 		</style>
 	</head>
 	<body>
-		<slot />	
+		<slot />
+		<HomeButton/>		
 		<Footer />
 	</body>
 </html>

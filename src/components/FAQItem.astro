@@ -124,22 +124,6 @@ const { question, answer, id } = Astro.props;
           anchor.textContent = finalText;
         });
   
-        doc.querySelectorAll('iframe').forEach(iframe => {
-          const src = iframe.getAttribute('src');
-          if (src) {
-            try {
-              const url = new URL(src);
-              const clip = url.searchParams.get('clip');
-              if (clip) {
-                const twitchUrl = `https://clips.twitch.tv/${clip}`;
-                const textNode = doc.createTextNode(twitchUrl);
-                iframe.parentNode?.replaceChild(textNode, iframe);
-              }
-            } catch (e) {
-            }
-          }
-        });
-  
         const finalText = doc.body.innerText.trim();
   
         navigator.clipboard.writeText(finalText).then(() => {
