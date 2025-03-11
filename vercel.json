@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "/lofi",
+        "destination": "https://lofigenerator.com/",
+        "permanent": true
+      }
+    ]
+}
