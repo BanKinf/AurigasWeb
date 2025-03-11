@@ -1,0 +1,159 @@
+---
+export interface Props {
+  question: string;
+  answer: string;
+  id: string;
+}
+
+const { question, answer, id } = Astro.props;
+---
+
+<div class="faq-item bg-[#0A1428] rounded-lg" data-id={id}>
+    <button 
+      class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none cursor-pointer"
+      aria-expanded="false"
+      aria-controls={`faq-content-${id}`}
+    >
+      <span class="faq-question text-lg font-medium">{question}</span>
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        class="faq-icon h-5 w-5 transition-transform duration-300"
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+    </button>
+    
+    <div 
+      id={`faq-content-${id}`} 
+      class="faq-content"
+    >
+      <div class="inner-content px-6 pb-4">
+        <p class="faq-answer text-gray-300" set:html={answer}></p>
+        
+        <div class="mt-4 flex justify-end">
+          <button 
+            class="copy-btn flex items-center text-sm text-gray-400 hover:text-gray-200"
+            data-answer={answer}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            copiar respuesta
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<style>
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+    }
+    
+    .faq-icon {
+      transform-origin: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .rotate-45 {
+      transform: rotate(45deg);
+    }
+  
+    .faq-question {
+      font-size: 1rem;
+      transition: font-size 0.3s ease-in-out;
+    }
+    
+    .active-question {
+      font-size: 1.25rem;
+    }
+</style>
+
+<script define:vars={{ id }}>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItem = document.querySelector(`.faq-item[data-id="${id}"]`);
+      const toggle = faqItem?.querySelector('.faq-toggle');
+      const content = faqItem?.querySelector('.faq-content');
+      const icon = faqItem?.querySelector('.faq-icon');
+      const copyBtn = faqItem?.querySelector('.copy-btn');
+      const questionEl = faqItem?.querySelector('.faq-question');
+  
+      toggle?.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+  
+        if (content) {
+          if (isExpanded) {
+            content.style.maxHeight = '0';
+            icon.style.transform = 'rotate(0deg)';
+            questionEl?.classList.remove('active-question');
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.style.transform = 'rotate(45deg)';
+            questionEl?.classList.add('active-question');
+          }
+        }
+      });
+  
+      copyBtn?.addEventListener('click', () => {
+        const answerHTML = copyBtn.getAttribute('data-answer') || '';
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(answerHTML, 'text/html');
+  
+        doc.querySelectorAll('a').forEach(anchor => {
+          let anchorText = anchor.textContent ?? '';
+          let finalText = anchorText;
+          
+          let trailingPunctuation = '';
+          if (/[.,;:!?]$/.test(finalText)) {
+            trailingPunctuation = finalText.slice(-1);
+            finalText = finalText.slice(0, -1);
+          }
+          
+          finalText += ' ' + anchor.href + ' ';
+          
+          if (trailingPunctuation) {
+            finalText += trailingPunctuation;
+          }
+          
+          anchor.textContent = finalText;
+        });
+  
+        doc.querySelectorAll('iframe').forEach(iframe => {
+          const src = iframe.getAttribute('src');
+          if (src) {
+            try {
+              const url = new URL(src);
+              const clip = url.searchParams.get('clip');
+              if (clip) {
+                const twitchUrl = `https://clips.twitch.tv/${clip}`;
+                const textNode = doc.createTextNode(twitchUrl);
+                iframe.parentNode?.replaceChild(textNode, iframe);
+              }
+            } catch (e) {
+            }
+          }
+        });
+  
+        const finalText = doc.body.innerText.trim();
+  
+        navigator.clipboard.writeText(finalText).then(() => {
+          const originalText = copyBtn.innerHTML;
+          copyBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            ¡copiado!
+          `;
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+          }, 2000);
+        });
+      });
+    });
+</script>
