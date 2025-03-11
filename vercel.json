@@ -4,6 +4,11 @@
         "source": "/lofi",
         "destination": "https://lofigenerator.com/",
         "permanent": true
+      },
+      {
+        "source": "/vultam",
+        "destination": "https://vultam.net/aurigas/",
+        "permanent": true
       }
     ]
 }

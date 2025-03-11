@@ -8,7 +8,7 @@ export interface Props {
 const { question, answer, id } = Astro.props;
 ---
 
-<div class="faq-item bg-[#0A1428] rounded-lg" data-id={id}>
+<div class="faq-item bg-[#0A1428] shadow-lg rounded-lg" data-id={id}>
     <button 
       class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none cursor-pointer"
       aria-expanded="false"
@@ -35,7 +35,7 @@ const { question, answer, id } = Astro.props;
         
         <div class="mt-4 flex justify-end">
           <button 
-            class="copy-btn flex items-center text-sm text-gray-400 hover:text-gray-200"
+            class="copy-btn flex items-center text-sm text-gray-400 hover:text-gray-200 hover:scale-105 duration-200 cursor-pointer"
             data-answer={answer}
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
