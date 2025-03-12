@@ -20,12 +20,13 @@ import { faqs } from '@/data/faqsData';
     </div>
 
     <div class="max-w-4xl mx-auto">
-        <div class="space-y-4 custom-scrollbar pr-4 md:max-h-[53vh] 2xl:max-h-[70vh]" id="faq-container">
+        <div class="space-y-4 custom-scrollbar pr-4 md:max-h-[53vh] 2xl:max-h-[70vh] overflow-y-auto" id="faq-container">
             {faqs.map((faq, index) => (
                 <FAQItem 
                 question={faq.question} 
                 answer={faq.answer} 
                 id={index.toString()}
+                category={faq.category || ''}
                 />
             ))}
         </div>
@@ -35,15 +36,8 @@ import { faqs } from '@/data/faqsData';
     </div>
 </main>
 
-<style>
-  #faq-container {
-    /* max-height: 70vh; */
-    overflow-y: auto;
-  }
-</style>
-  
 <script>
-    function removeAccents(str:String) {
+    function removeAccents(str: string) {
       return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
   
@@ -51,15 +45,21 @@ import { faqs } from '@/data/faqsData';
     const faqItems = document.querySelectorAll('.faq-item');
     const noResultsMessage = document.getElementById('no-results');
   
-    searchInput?.addEventListener('input', () => {
-      const searchTerm = removeAccents(searchInput.value.toLowerCase());
+    function filterFAQs(searchTerm = '', section = '') {
       let anyVisible = false;
   
       faqItems.forEach((item) => {
         const question = removeAccents(item.querySelector('.faq-question')?.textContent?.toLowerCase() || '');
         const answer = removeAccents(item.querySelector('.faq-answer')?.textContent?.toLowerCase() || '');
+        const itemCategory = (item.getAttribute('data-category') || '').toLowerCase();
+
+        const showByCategory = section 
+          ? (itemCategory === section.toLowerCase()) 
+          : (itemCategory === '');
+          
+        const showByText = (question.includes(searchTerm) || answer.includes(searchTerm));
   
-        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        if (showByCategory && showByText) {
           (item as HTMLElement).style.display = 'block';
           anyVisible = true;
         } else {
@@ -70,5 +70,18 @@ import { faqs } from '@/data/faqsData';
       if (noResultsMessage) {
         noResultsMessage.style.display = anyVisible ? 'none' : 'block';
       }
+    }
+  
+    searchInput?.addEventListener('input', () => {
+      const searchTerm = removeAccents(searchInput.value.toLowerCase());
+      const params = new URLSearchParams(window.location.search);
+      const section = params.get('section') || '';
+      filterFAQs(searchTerm, section);
+    });
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const section = params.get('section');
+      filterFAQs('', section || '');
     });
 </script>

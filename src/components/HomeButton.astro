@@ -3,7 +3,7 @@ const currentPage = Astro.url.pathname;
 ---
 
 {currentPage !== '/' && (
-	<a href="/" class="fixed 2xl:bottom-10 2xl:left-10 md:bottom-6 md:left-6 bottom-5 left-5 group flex items-center gap-3">
+	<a href="/" class="fixed 2xl:bottom-10 2xl:left-10 md:bottom-6 md:left-6 bottom-5 left-5 group flex items-center gap-3" aria-label="Volver al inicio">
 		<div class="w-14 h-14 bg-[#0A1428] text-gray-400 rounded-full flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#11254d] group-hover:scale-110 group-hover:text-white">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.398 495.398" class="w-8 h-8" fill="currentColor">
 				<g>

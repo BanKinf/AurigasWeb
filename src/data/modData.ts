@@ -13,16 +13,34 @@ export const mods: ModData[] = [
     image: "/images/mods/replaymod.webp",
   },
   {
+    name: "FreeCam",
+    link: "https://modrinth.com/mod/freecam",
+    author:"Hashalite",
+    image: "/images/mods/freecam.webp",
+  },
+  {
+    name: "Stackable Shulkers Fix",
+    link: "https://modrinth.com/mod/stackable-shulkers-fix",
+    author:"KikuGie",
+    image: "/images/mods/stackeable-shulkers-fix.webp",
+  },
+  {
     name: "CarpetMod",
     link: "https://modrinth.com/mod/carpet",
     author:"Gnembon",
     image: "/images/mods/carpetmod.webp",
   },
   {
-    name: "FreeCam",
-    link: "https://modrinth.com/mod/freecam",
-    author:"Hashalite",
-    image: "/images/mods/freecam.webp",
+    name: "Carpet Extra",
+    link: "https://modrinth.com/mod/carpet-extra",
+    author:"Altrisi",
+    image: "/images/mods/carpet-extra.webp",
+  },
+  {
+    name: "Carpet TIS Addition",
+    link: "https://modrinth.com/mod/carpet-tis-addition",
+    author:"FallenBreath",
+    image: "/images/mods/carpet-tis-addition.webp",
   },
   {
     name: "Minihud",

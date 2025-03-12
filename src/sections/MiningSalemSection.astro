@@ -23,9 +23,9 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
 }));
 ---
 
-<div class="max-w-6xl mx-auto px-8 pt-5">
+<div class="2xl:max-w-6xl md:max-w-5xl mx-auto px-8 pt-5">
   <div class="flex">
-    <h1 class="text-5xl font-ConcertOne mb-6">STREAMS DE MINAR - SALEM</h1>
+    <h1 class="text-5xl font-ConcertOne mb-6 text-white">STREAMS DE MINAR - SALEM</h1>
     <img src="/images/emotes/auri-vanilla.webp" alt="Aurigas Logo" class="w-24" />
   </div>
 
@@ -36,11 +36,11 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
     </div>
   </div>
 
-  <div class="rounded-lg shadow-lg overflow-x-auto">
-    <table id="minadoTable" class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-gray-50">
+  <div class="rounded-lg shadow-lg custom-scrollbar overflow-x-auto overflow-y-auto max-h-[62vh] bg-[#0a1224]">
+    <table id="minadoTable" class="min-w-full divide-y divide-gray-700">
+      <thead class="bg-[#121a2e]">
         <tr>
-          <th data-sort="num" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th data-sort="num" class="cursor-pointer hover:text-blue-400 px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
             <div class="flex items-center">
               Stream
               <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
@@ -48,7 +48,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
               </span>
             </div>
           </th>
-          <th data-sort="tiempo" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th data-sort="tiempo" class="cursor-pointer hover:text-blue-400 px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
             <div class="flex items-center">
               Duración
               <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
@@ -56,7 +56,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
               </span>
             </div>
           </th>
-          <th data-sort="bloques" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th data-sort="bloques" class="cursor-pointer hover:text-blue-400 px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
             <div class="flex items-center">
               Bloques
               <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
@@ -64,7 +64,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
               </span>
             </div>
           </th>
-          <th data-sort="total" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th data-sort="total" class="cursor-pointer hover:text-blue-400 px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
             <div class="flex items-center">
               Total Picado
               <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
@@ -72,8 +72,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
               </span>
             </div>
           </th>
-          <!-- Nueva columna BPS -->
-          <th data-sort="bps" class="cursor-pointer hover:text-indigo-600 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th data-sort="bps" class="cursor-pointer hover:text-blue-400 px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
             <div class="flex items-center">
               BPS
               <span class="sort-arrow opacity-0 transition-opacity transition-transform duration-200 ml-1">
@@ -81,40 +80,40 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
               </span>
             </div>
           </th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Enlace</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Enlace</th>
         </tr>
       </thead>
-      <tbody id="minadoTbody" class="bg-white divide-y divide-gray-200">
+      <tbody id="minadoTbody" class="bg-[#0a1224] divide-y divide-gray-700">
         {minadoData.map(({ num, tiempo, bloques, total, link }) => {
           const bloquesInt = parseInt(bloques.replace(/\./g, ''), 10);
           const segundos = parseDuration(tiempo);
           const bps = (bloquesInt / segundos).toFixed(2);
           return (
-            <tr class="hover:bg-gray-50 transition-colors">
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#{num}</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                <i class="fas fa-stopwatch mr-2 text-purple-500"></i>
+            <tr class="hover:bg-[#050a17] transition-colors">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#{num}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                <i class="fas fa-stopwatch mr-2 text-purple-400"></i>
                 {tiempo}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">
-                <i class="fas fa-cube mr-2 text-blue-500"></i>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-white font-semibold">
+                <i class="fas fa-cube mr-2 text-blue-400"></i>
                 {bloques}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-emerald-600 font-bold">
-                <i class="fas fa-layer-group mr-2 text-green-500"></i>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-emerald-400 font-bold">
+                <i class="fas fa-layer-group mr-2 text-green-400"></i>
                 {total}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium">
-                <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-200 font-medium">
+                <i class="fas fa-bolt mr-2 text-yellow-400"></i>
                 {bps}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">
                 <a 
                   href={link} 
                   target="_blank" 
-                  class="text-indigo-600 hover:text-indigo-900 flex items-center"
+                  class="text-purple-600 hover:text-indigo-900 flex items-center"
                   rel="noopener noreferrer"
-                >
+                > 
                   <i class="fab fa-twitch mr-2"></i>
                   Ver sesión
                   <i class="fas fa-external-link-alt ml-2 text-xs"></i>
@@ -127,11 +126,11 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
     </table>
   </div>
   
-  <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-sm hover:bg-gray-300">
+  <button id="openModalBtn" class="px-6 py-2.5 mt-2 bg-[#121a2e] cursor-pointer text-white rounded-sm hover:bg-gray-700">
     Mostrar Gráfica
   </button>
-  
-  <button id="exportCsvBtn" class="px-6 py-2.5 mt-2 bg-white text-black rounded-sm hover:bg-gray-300 transition-transform">
+    
+  <button id="exportCsvBtn" class="px-6 py-2.5 mt-2 bg-[#121a2e] cursor-pointer text-white rounded-sm hover:bg-gray-700 transition-transform">
     Exportar CSV
   </button>
   
@@ -198,26 +197,26 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
         const segundos = parseDuration(row.tiempo);
         const bps = (bloquesInt / segundos).toFixed(2);
         return `
-          <tr class="hover:bg-gray-50 transition-colors">
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#${row.num}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              <i class="fas fa-stopwatch mr-2 text-purple-500"></i>
+          <tr class="hover:bg-[#050a17] transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">#${row.num}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+              <i class="fas fa-stopwatch mr-2 text-purple-400"></i>
               ${row.tiempo}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">
-              <i class="fas fa-cube mr-2 text-blue-500"></i>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-white font-semibold">
+              <i class="fas fa-cube mr-2 text-blue-400"></i>
               ${row.bloques}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-emerald-600 font-bold">
-              <i class="fas fa-layer-group mr-2 text-green-500"></i>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-emerald-400 font-bold">
+              <i class="fas fa-layer-group mr-2 text-green-400"></i>
               ${row.total}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 font-medium">
-              <i class="fas fa-bolt mr-2 text-yellow-500"></i>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-200 font-medium">
+              <i class="fas fa-bolt mr-2 text-yellow-400"></i>
               ${bps}
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm">
-              <a href="${row.link}" target="_blank" class="text-indigo-600 hover:text-indigo-900 flex items-center" rel="noopener noreferrer">
+              <a href="${row.link}" target="_blank" class="text-purple-600 hover:text-indigo-900 flex items-center" rel="noopener noreferrer">
                 <i class="fab fa-twitch mr-2"></i>
                 Ver sesión
                 <i class="fas fa-external-link-alt ml-2 text-xs"></i>
@@ -233,7 +232,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
         const col = header.getAttribute('data-sort');
         const arrow = header.querySelector('.sort-arrow') as HTMLElement;
         if (col === currentSort.column) {
-          header.classList.add('text-indigo-600');
+          header.classList.add('text-blue-400');
           if (arrow) {
             arrow.style.opacity = "1";
             if (!currentSort.ascending) {
@@ -243,7 +242,7 @@ const minadoData: MinadoData[] = MinadoSalemData.map(([num, tiempo, bloques, tot
             }
           }
         } else {
-          header.classList.remove('text-indigo-600');
+          header.classList.remove('text-blue-400');
           if (arrow) {
             arrow.style.opacity = "0";
             arrow.classList.remove('rotate-180');

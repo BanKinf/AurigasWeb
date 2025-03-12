@@ -1,4 +1,5 @@
-const startDateSTA = new Date("2018-05-15");
+const STAVersion = '1.21.0';
+const startDateSTA = new Date("2020-06-23");
 const currentDate = new Date();
 
 let yearsPassed = currentDate.getFullYear() - startDateSTA.getFullYear();
@@ -25,7 +26,7 @@ export const faqs = [
     },
     {
         question: "¿Por qué no tenés netherite?",
-        answer: "No me gusta usar netherite porque lo considero un material demasiado caro de conseguir para la poca mejora que ofrece respecto al diamante. Además, es un material no renovable, y el diamante sí lo es :)."
+        answer: "No me gusta usar netherite porque lo considero un material demasiado caro de conseguir para la poca mejora que ofrece respecto al diamante. Además, es un material no renovable, y el diamante sí lo es :), ademas tengo un clip explicandolo te lo dejo <a href='https://clips.twitch.tv/MuddyCrackySalmonGOWSkull' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aqui</a>."
     },
     {
         question: "¿Has abandonado YouTube?",
@@ -73,7 +74,7 @@ export const faqs = [
     },
     {
         question: "¿Cuándo empezó el mundo STA?",
-        answer: `El mundo STA lo empecé el ${startDateSTA.toLocaleDateString()} y ya han pasado ${yearsPassed} años desde entonces.`
+        answer: `El mundo STA lo empecé el ${startDateSTA.toLocaleDateString()} y ya han pasado mas de ${yearsPassed} años desde entonces.`
     },
     {
         question: "¿Cuántos días llevás en tu mundo STA?",
@@ -81,6 +82,44 @@ export const faqs = [
     },
     {
         question: "¿Cuál es tu horario?",
-        answer: "Suelo prender stream de lunes a viernes desde las 16:00 hs a las 20:00 hs hora española."
+        answer: "Suelo prender stream de lunes a viernes desde las 16:00 hs a las 20:00 hs, hora española."
+    },
+    {
+        question: "¿Por qué tirás las shulkers a los beacons?",
+        answer: "Tiro las shulkers llenas a los beacons porque debajo de cada uno hay una corriente de agua que se dirige al centro, donde tengo un almacén temporal. Esto lo hago porque es mucho más rápido que tener que ir al centro cada vez que quiero vaciar mi inventario.",
+        category: "salem"
+    },
+    {
+        question: "¿Qué son los BBS?",
+        answer: "Eso que está en el medio de la pantalla mientras pico son los bloques minados por segundo. Los tengo para saber si estoy picando rápido o muy lento y así poder hacerme una idea general de cómo va mi ritmo de picado.",
+        category: "salem"
+    },
+    {
+        question: "¿Qué preferís, Java o Bedrock?",
+        answer: "Yo juego en Java, no tengo conocimiento sobre Bedrock, nunca en mi vida probé jugar Bedrock, entonces no puedo decir qué es mejor. Si querés saber más, te dejo un clip con mi opinión <a href='https://clips.twitch.tv/CarelessMoralDragonflyJKanStyle-1ojQPpwPs8cLE_8X' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>."
+    },
+    {
+        question: "¿Por qué dejaste LastHope?",
+        answer: "Yo no dejé LastHope SMP, el servidor cerró en mayo de 2020 y, desde entonces, no he vuelto a jugar en dicho servidor. Lo más probable es que nunca vuelva a abrir sus puertas."
+    },
+    {
+        question: "¿En qué versión está tu mundo STA?",
+        answer: `Mi mundo STA se encuentra en la versión ${STAVersion}`
+    },
+    {
+        question: "¿Por qué no actualizás a la última versión?",
+        answer: `Por el momento me encuentro en la ${STAVersion} y no tengo planes de actualizar hasta que me sea necesario. Yo no soy de esas personas que, apenas sale una versión, actualiza. Mojang suele romper muchas cosas y no tengo la necesidad de actualizar instantáneamente, me lo tomo con calma.`
+    },
+    {
+        question: "¿Por qué tu pico se ve de color rojo?",
+        answer: "El pico se pone con un borde rojo cuando está por romperse. Esto ocurre porque tengo un texture pack que desarrollé para saber cuándo le queda poca durabilidad y así poder guardarlo antes de que se rompa sin darme cuenta. Si querés tener el mismo texture pack, accedé a <a href='https://discord.gg/kcqHJDu' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
+    },
+    {
+        question: "¿Por qué no usás tótems?",
+        answer: "No utilizo tótems en mi survival porque no es un hardcore. No me importa morir, vuelvo a por mis cosas y sigo jugando. No tengo la necesidad de tener mi mano secundaria ocupada con un ítem inútil. Si querés saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/SpicyVainTapirM4xHeh-9xenwmb1RhaEhyck' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
+    },
+    {
+        question: "¿Por qué hacés granjas tan grandes y masivas?",
+        answer: "A mí lo que me divierte de jugar Minecraft técnico es hacer proyectos grandes a los que pueda dedicarle tiempo. Si puedo hacer la granja más grande de slime, la voy a hacer. Si querés saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/TallBraveEchidnaTheRinger-jdGWHE6lycKExVzb' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
     }
 ];
