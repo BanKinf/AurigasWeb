@@ -5,11 +5,11 @@ export const faqs = [
     },
     {
         question: "¿Qué pasó con LastHope?",
-        answer: "LastHope SMP cerró en mayo de 2020 y desde entonces no he vuelto a jugar en dicho servidor, lo más probable es que nunca vuelva a abrir sus puertas."
+        answer: "LastHope SMP cerró en mayo de 2020 y desde entonces no he vuelto a jugar en dicho servidor. Lo más probable es que nunca vuelva a abrir sus puertas."
     },
     {
         question: "¿Cuándo acabes el mundo lo dejarás para descargar?",
-        answer: "Para mí, el concepto de acabar un mundo no tiene sentido en la modalidad de Minecraft que me gusta jugar. Mi survival no tiene un final como tal, mientras siga disfrutando de este juego mi mapa seguirá en pie."
+        answer: "Para mí, el concepto de acabar un mundo no tiene sentido en la modalidad de Minecraft que me gusta jugar. Mi survival no tiene un final como tal; mientras siga disfrutando de este juego, mi mapa seguirá en pie."
     },
     {
         question: "¿Por qué no tienes netherite?",
@@ -38,5 +38,25 @@ export const faqs = [
     {
         question: "¿Cómo stackeas shulkers?",
         answer: "Yo lo que utilizo para stackear shulker boxes es una rule del Carpet Mod que tienes disponible <a href='https://modrinth.com/mod/carpet' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>. La rule se llama StackableShulkerBoxes y la tengo en la opción de stackeo a 64."
+    },
+    {
+        question: "¿Qué es Vultam?",
+        answer: '¡Vultam.net es patrocinador del canal! Vultam es una empresa de hosting de servidores potentes a muy buen precio. Puedes acceder a ella pulsando <a href="https://vultam.net/aurigas" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:border-b-1">aquí</a> y usar el código "aurigas" para obtener un 10% de descuento.'
+    },
+    {
+        question: "¿Qué es Aurum?",
+        answer: "Aurum está planteado como un servidor para reunir a los suscriptores de mi canal de Twitch. En este servidor se juega principalmente la rama técnica de Minecraft survival en la versión 1.18.2, de una forma muy cercana a vanilla, pero con algunos retoques de CarpetMod. Además, tenemos una comunidad de Discord a la cual puedes acceder en <a href='https://vultam.net/aurigas' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
+    },
+    {
+        question: "¿Qué estás estudiando?",
+        answer: "Por el momento no quiero decir qué carrera estoy estudiando por temas de privacidad."
+    },
+    {
+        question: "¿Qué texture pack usas?",
+        answer: 'Actualmente el texture pack que uso no es público, pero puedes utilizar las versiones anteriores que están disponibles <a href="https://discord.gg/kcqHJDu" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:border-b-1">aquí</a>, o si no, puedes crear algo parecido a lo que tengo en <a href="https://vanillatweaks.net/picker/resource-packs/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:border-b-1">esta web</a> combinando distintas texturas.'
+    },
+    {
+        question: "¿Qué mods utilizas?",
+        answer: 'Tienes toda la lista de mods que utilizo y sus respectivos enlaces <a href="/mods" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:border-b-1">aquí</a>.'
     }
 ];
