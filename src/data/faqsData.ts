@@ -38,7 +38,7 @@ export const faqs = [
     },
     {
         question: "¿Cómo colocás bloques tan rápido?",
-        answer: "Para poner bloques así de rápido utilizo una tecla asignada al clic derecho. Es decir, en el menú de configuración, en vez de tener el clic derecho asignado para colocar bloques, tengo la tecla R en su lugar, y así, manteniéndola, puedo poner muchos bloques por segundo. Si querés saber más, entrá a <a href='https://www.twitch.tv/aurigas/clip/FaithfulDarkBeefOneHand-wwfFRtsnAe5GGYso' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
+        answer: "Para poner bloques así de rápido utilizo una tecla asignada al clic derecho. Es decir, en el menú de configuración, en vez de tener el clic derecho asignado para colocar bloques, tengo la tecla R en su lugar, y así, manteniéndola, puedo poner muchos bloques por segundo. Si quieres saber más, entrá a <a href='https://www.twitch.tv/aurigas/clip/FaithfulDarkBeefOneHand-wwfFRtsnAe5GGYso' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
     },
     {
         question: "¿Cómo picás tan rápido?",
@@ -46,7 +46,7 @@ export const faqs = [
     },
     {
         question: "¿Qué música utilizás en tus directos?",
-        answer: "Yo, en el fondo de mis directos, tengo música lofi que se genera automáticamente con IA. Si querés saber más, visitá <a href='https://lofigenerator.com/' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>esta web</a>."
+        answer: "Yo, en el fondo de mis directos, tengo música lofi que se genera automáticamente con IA. Si quieres saber más, visitá <a href='https://lofigenerator.com/' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>esta web</a>."
     },
     {
         question: "¿Cómo stackeás shulkers?",
@@ -58,7 +58,7 @@ export const faqs = [
     },
     {
         question: "¿Qué es Aurum?",
-        answer: "Aurum está planteado como un servidor para reunir a los suscriptores de mi canal de Twitch. En este servidor se juega principalmente la rama técnica de Minecraft Survival en la versión 1.18.2, de una forma muy cercana a vanilla, pero con algunos retoques de CarpetMod. Además, tenemos una comunidad de Discord a la cual podés acceder en <a href='https://vultam.net/aurigas' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
+        answer: "Aurum está planteado como un servidor para reunir a los suscriptores de mi canal de Twitch. En este servidor se juega principalmente la rama técnica de Minecraft Survival en la versión 1.18.2, de una forma muy cercana a vanilla, pero con algunos retoques de CarpetMod. Además, tenemos una comunidad de Discord a la cual podés acceder en <a href='https://discord.gg/jJ8fC7pTxk' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
     },
     {
         question: "¿Qué estás estudiando?",
@@ -96,7 +96,7 @@ export const faqs = [
     },
     {
         question: "¿Qué preferís, Java o Bedrock?",
-        answer: "Yo juego en Java, no tengo conocimiento sobre Bedrock, nunca en mi vida probé jugar Bedrock, entonces no puedo decir qué es mejor. Si querés saber más, te dejo un clip con mi opinión <a href='https://clips.twitch.tv/CarelessMoralDragonflyJKanStyle-1ojQPpwPs8cLE_8X' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>."
+        answer: "Yo juego en Java, no tengo conocimiento sobre Bedrock, nunca en mi vida probé jugar Bedrock, entonces no puedo decir qué es mejor. Si quieres saber más, te dejo un clip con mi opinión <a href='https://clips.twitch.tv/CarelessMoralDragonflyJKanStyle-1ojQPpwPs8cLE_8X' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>."
     },
     {
         question: "¿Por qué dejaste LastHope?",
@@ -112,14 +112,14 @@ export const faqs = [
     },
     {
         question: "¿Por qué tu pico se ve de color rojo?",
-        answer: "El pico se pone con un borde rojo cuando está por romperse. Esto ocurre porque tengo un texture pack que desarrollé para saber cuándo le queda poca durabilidad y así poder guardarlo antes de que se rompa sin darme cuenta. Si querés tener el mismo texture pack, accedé a <a href='https://discord.gg/kcqHJDu' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
+        answer: "El pico se pone con un borde rojo cuando está por romperse. Esto ocurre porque tengo un texture pack que desarrollé para saber cuándo le queda poca durabilidad y así poder guardarlo antes de que se rompa sin darme cuenta. Si quieres tener el mismo texture pack, accedé a <a href='https://discord.gg/kcqHJDu' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este link</a>."
     },
     {
         question: "¿Por qué no usás tótems?",
-        answer: "No utilizo tótems en mi survival porque no es un hardcore. No me importa morir, vuelvo a por mis cosas y sigo jugando. No tengo la necesidad de tener mi mano secundaria ocupada con un ítem inútil. Si querés saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/SpicyVainTapirM4xHeh-9xenwmb1RhaEhyck' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
+        answer: "No utilizo tótems en mi survival porque no es un hardcore. No me importa morir, vuelvo a por mis cosas y sigo jugando. No tengo la necesidad de tener mi mano secundaria ocupada con un ítem inútil. Si quieres saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/SpicyVainTapirM4xHeh-9xenwmb1RhaEhyck' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
     },
     {
         question: "¿Por qué hacés granjas tan grandes y masivas?",
-        answer: "A mí lo que me divierte de jugar Minecraft técnico es hacer proyectos grandes a los que pueda dedicarle tiempo. Si puedo hacer la granja más grande de slime, la voy a hacer. Si querés saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/TallBraveEchidnaTheRinger-jdGWHE6lycKExVzb' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
+        answer: "A mí lo que me divierte de jugar Minecraft técnico es hacer proyectos grandes a los que pueda dedicarle tiempo. Si puedo hacer la granja más grande de slime, la voy a hacer. Si quieres saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/TallBraveEchidnaTheRinger-jdGWHE6lycKExVzb' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
     }
 ];
