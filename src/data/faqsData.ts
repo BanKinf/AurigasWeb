@@ -42,7 +42,7 @@ export const faqs = [
     },
     {
         question: "¿Cómo picás tan rápido?",
-        answer: "Estoy utilizando un pico de diamante con eficiencia 5 y, además, tengo un beacon con prisa minera 2. Por esa razón, puedo instaminar bloques como la stone y la diorita."
+        answer: "Estoy utilizando un pico de diamante con eficiencia 5 y, además, tengo un beacon con prisa minera 2. Por esa razón, puedo instaminar bloques como la stone y la diorite."
     },
     {
         question: "¿Qué música utilizás en tus directos?",
@@ -85,16 +85,6 @@ export const faqs = [
         answer: "Suelo prender stream de lunes a viernes desde las 16:00 hs a las 20:00 hs, hora española."
     },
     {
-        question: "¿Por qué tirás las shulkers a los beacons?",
-        answer: "Tiro las shulkers llenas a los beacons porque debajo de cada uno hay una corriente de agua que se dirige al centro, donde tengo un almacén temporal. Esto lo hago porque es mucho más rápido que tener que ir al centro cada vez que quiero vaciar mi inventario.",
-        category: "salem"
-    },
-    {
-        question: "¿Qué son los BBS?",
-        answer: "Eso que está en el medio de la pantalla mientras pico son los bloques minados por segundo. Los tengo para saber si estoy picando rápido o muy lento y así poder hacerme una idea general de cómo va mi ritmo de picado.",
-        category: "salem"
-    },
-    {
         question: "¿Qué preferís, Java o Bedrock?",
         answer: "Yo juego en Java, no tengo conocimiento sobre Bedrock, nunca en mi vida probé jugar Bedrock, entonces no puedo decir qué es mejor. Si quieres saber más, te dejo un clip con mi opinión <a href='https://clips.twitch.tv/CarelessMoralDragonflyJKanStyle-1ojQPpwPs8cLE_8X' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>."
     },
@@ -121,5 +111,80 @@ export const faqs = [
     {
         question: "¿Por qué hacés granjas tan grandes y masivas?",
         answer: "A mí lo que me divierte de jugar Minecraft técnico es hacer proyectos grandes a los que pueda dedicarle tiempo. Si puedo hacer la granja más grande de slime, la voy a hacer. Si quieres saber más sobre mi opinión, mirá <a href='https://clips.twitch.tv/TallBraveEchidnaTheRinger-jdGWHE6lycKExVzb' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>."
+    },
+    {
+        question: "⭐ ¿Qué es el proyecto Salem?",
+        answer: "El Proyecto Salem es una granja cuádruple de brujas capaz de generar más de 35k de redstone por hora. Esta granja estará ubicada dentro de un perímetro irregular y, en el futuro, se convertirá en una especie de bioma personalizado. Si deseas ver el progreso, entra <a href='https://www.twitch.tv/aurigas/videos?filter=all&sort=time' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué picas a mano el perímetro?",
+        answer: "Estoy haciendo el perímetro a mano porque, en mis proyectos en STA, suelo utilizar máquinas como World Eters o 3D Dupers; esta vez, sin embargo, quiero hacer algo diferente para variar y disfrutar del proceso. Si deseas saber más, mira <a href='https://www.twitch.tv/aurigas/clip/HumbleMiniatureTildeAMPEnergyCherry-08Q8u8l2dBG63q_Z' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué tirás las shulkers a los beacons?",
+        answer: "Lanzo las shulkers llenas a los beacons porque debajo de cada uno hay una corriente de agua que se dirige al centro, donde tengo un almacén temporal. Hago esto porque es mucho más rápido que ir al centro cada vez que quiero vaciar mi inventario.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué se llama Salem?",
+        answer: "El proyecto se llama así debido a la historia detrás del nombre. Salem es una ciudad de Estados Unidos en la que se llevaron a cabo los juicios de las brujas, y como el proyecto es una granja de brujas, junto con la gente del chat decidimos llamarlo así. Además, la palabra Salem tiene dos sílabas y me gusta :), si deseas saber más sobre la historia, entra <a href='https://es.wikipedia.org/wiki/Juicios_de_Salem' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aquí</a>.", 
+        category: "salem"
+    },
+    {
+        question: "¿Qué son los BBS?",
+        answer: "Lo que aparece en el centro de la pantalla mientras pico son los bloques minados por segundo. Los utilizo para saber si estoy picando rápido o muy lento y tener una idea general de cómo va mi ritmo.",
+        category: "salem"
+    },
+    {
+        question: "¿Qué forma tiene el perímetro?",
+        answer: "El perímetro no tiene una forma definida, es completamente irregular, ya que se creó a partir de un río generado naturalmente. Si deseas ver cómo quedará y cómo se logró esa forma, mira <a href='https://youtu.be/AUdza7UUVcU' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>este clip</a>.",
+        category: "salem"
+    },
+    {
+        question: "¿Qué va a ir dentro del perímetro?",
+        answer: "Dentro del perímetro habrá una granja cuádruple de brujas que generará aproximadamente 35k/h de redstone. Aún no sé qué diseño utilizaré o si la diseñaré yo mismo, lo único que tengo claro es que no será EOL.",
+        category: "salem"
+    },
+    {
+        question: "¿Cómo encuentro una cuádruple witch hut en mi seed?",
+        answer: "Si quieres tener una cuádruple witch hut en tu seed y no sabes cómo buscarla, te recomiendo el programa <a href='https://github.com/Cubitect/cubiomes-viewer' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>Cubiomes</a>, con el cual puedes localizar estructuras y biomas específicos en tu seed. Seguramente, si no generaste tu seed con una cuádruple witch hut, no tendrás una o estará muy lejos del spawn. Y, si aún no iniciaste tu survival, puedes generar una seed con una cuádruple witch hut usando el programa que te mencioné anteriormente.",
+        category: "salem"
+    },
+    {
+        question: "¿Cuánto va a producir la granja de brujas?",
+        answer: "No es una sola granja, son cuatro granjas de brujas que generan aproximadamente 9k/h cada una, lo que suma un total de unos 35k/h de redstone. Estos números son teóricos, pero en la práctica se acercan mucho. Aún no sé qué diseño de granja voy a hacer.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué estas haciendo una granja de brujas?",
+        answer: "Estoy haciendo una granja cuádruple de brujas, ya que las granjas de raids en la 1.21 dejaron de funcionar. La mecánica de stackeo de raids fue parcheada al agregar la nueva posición de badomen y otros cambios, por lo que la mejor fuente de redstone ahora es una granja de brujas, ya sea de 1,2,3 o 4 huts.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué no utilizas toolswitch al picar?",
+        answer: "Yo intento jugar lo mas vanilla posible, por eso no utilizo toolswitch al picar, me gusta mantener el juego lo mas puro posible, aunque no me cierro a usar mods, no me gusta abusar de ellos. Por eso, pese a que no estoy en contra del toolswitch, a mí personalmente no me gusta usarlo en mi mundo.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué guardas la piedra si es renovable?",
+        answer: "Guardo la piedra por dos razones: la primera es por una cuestión de tiempo al picar, ya que si tengo que estar separando lo que voy a guardar, tardo mucho más que si guardo todo, y la segunda es porque es útil tener piedra en el almacén general para craftear cosas como repiters, comparadores, etc.",
+        category: "salem"
+    },
+    {
+        question: "¿Cómo encontraste tu cuádruple witch hut?",
+        answer: "Cuando empecé mi mundo en la 1.16, busqué una seed que tuviera una cuádruple witch hut cerca del spawn. La encontré en un post de reddit en un listado de cientos de seeds. Mi cuádruple witch hut no es ideal, es decir, no están todas alineadas en un eje ni están a la misma altura. Pero bueno, respondiendo a la pregunta, yo no busque la cuádruple witch hut en mi mundo, empecé con una seed que tuviera esa generación.",
+        category: "salem"
+    },
+    {
+        question: "¿Qué diseño harás para la granja de brujas?",
+        answer: "Todavía no tengo un diseño de granja definido, no sé si será un diseño mío o de alguien más, pero lo que sí sé es que no será EOL, tampoco sé si voy a llevar a las brujas al nether o las moveré por el overworld con conveyors o piston bolts.",
+        category: "salem"
+    },
+    {
+        question: "¿Cómo picás tan rápido?",
+        answer: "Estoy utilizando un pico de diamante con eficiencia 5 y, además, tengo un beacon con prisa minera 2. Por esa razón, puedo instaminar bloques como la stone y la diorite.",
+        category: "salem"
     }
 ];
