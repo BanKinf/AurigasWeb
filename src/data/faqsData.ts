@@ -159,7 +159,7 @@ export const faqs = [
     },
     {
         question: "¿Por qué estas haciendo una granja de brujas?",
-        answer: "Estoy haciendo una granja cuádruple de brujas, ya que las granjas de raids en la 1.21 dejaron de funcionar. La mecánica de stackeo de raids fue parcheada al agregar la nueva posición de badomen y otros cambios, por lo que la mejor fuente de redstone ahora es una granja de brujas, ya sea de 1,2,3 o 4 huts.",
+        answer: "Estoy haciendo una granja cuádruple de brujas, ya que las granjas de raids en la 1.21 dejaron de funcionar. La mecánica de stackeo de raids fue parcheada al agregar la nueva poción de badomen y otros cambios, por lo que la mejor fuente de redstone ahora es una granja de brujas, ya sea de 1,2,3 o 4 huts.",
         category: "salem"
     },
     {

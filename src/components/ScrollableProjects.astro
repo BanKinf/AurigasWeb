@@ -6,6 +6,7 @@ interface New {
   description: string;
   image: string;
   alt: string;
+  hrefButton: string;
 }
 
 interface Props {
@@ -23,6 +24,7 @@ const { news } = Astro.props;
         description={newS.description}
         image={newS.image}
         alt={newS.alt}
+        hrefButton={newS.hrefButton}
       />
     ))}
   </div>
