@@ -4,7 +4,7 @@ export const news = [
     description: "Aurigas ha dado comienzo a un proyecto espectacular: una cuádruple granja de brujas capaz de generar 36k/h de redstone.",
     image: "/images/news/salem-project.webp",
     alt: "Proyecto Salem - Granja de brujas",
-    hrefButton: "https://www.youtube.com/playlist?list=PLTa5p56dEkq8roAe58mMPWC8nbD3ammd1"
+    hrefButton: "/minado-salem"
   },
   {
     title: "ALMACÉN GENERAL",
