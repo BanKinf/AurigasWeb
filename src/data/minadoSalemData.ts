@@ -21,4 +21,5 @@ export const MinadoSalemData = [
     [20, '01:42:37', '50.154', '2.161.478', 'https://www.twitch.tv/videos/2409798633?t=00h07m38s'],
     [21, '03:35:41', '140.406', '2.302.133', 'https://www.twitch.tv/videos/2410639613?t=00h44m55s'],
     [22, '04:45:45', '200.160', '2.502.293', 'https://www.twitch.tv/videos/2411479388?t=00h11m03s'],
+    [23, '01:38:27', '68.553', '2.570.849', 'https://www.twitch.tv/videos/2414160605?t=00h36m25s'],
 ];
