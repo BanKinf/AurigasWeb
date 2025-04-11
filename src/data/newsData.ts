@@ -1,5 +1,12 @@
 export const news = [
-    {
+  {
+    title: "DENDRITE EN YOUTUBE",
+    description: "Aurigas ha subido un nuevo video a su canal de YouTube sobre su granja de hielo de 72k/h. ¡No te lo pierdas! Tiene un montón de time-lapses y animaciones guapísimas.",
+    image: "/images/news/dendrite.webp",
+    alt: "Miniatura del video de Dendrite",
+    hrefButton: "https://www.youtube.com/watch?v=Z3aZITbWc2M&lc=UgyxRzN07oXA7Cn-fbJ4AaABAg&ab_channel=Aurigas"
+  },
+  {
     title: "PROYECTO SALEM",
     description: "Aurigas ha dado comienzo a un proyecto espectacular: una cuádruple granja de brujas capaz de generar 36k/h de redstone.",
     image: "/images/news/salem-project.webp",
