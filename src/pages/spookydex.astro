@@ -1,0 +1,51 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MobCard from '@/components/SpookyMobCard.astro';
+import Sidebar from '@/components/SpookySidebar.astro';
+import { SpookydexDataArchive } from '@/data/SpookydexData';
+
+const mobTypes = [...new Set(SpookydexDataArchive.map(mob => mob.mobType))];
+const variants = [...new Set(SpookydexDataArchive.map(mob => mob.variant))];
+const versions = [...new Set(SpookydexDataArchive.map(mob => mob.verion).filter((v): v is string => v !== undefined))];
+---
+
+<Layout title="Spookydex">
+    <header class="flex items-center justify-center text-center mt-2">
+        <h1 class="md:text-5xl text-4xl font-bold text-white text-center ">SPOOKYDEX</h1>
+        <img src="/images/emotes/auri-spooky.webp" alt="Spookydex" class="md:w-26 w-20 ml-4" />
+    </header>
+  <main class="flex flex-col md:flex-row text-white 2xl:max-w-screen-2xl md:max-w-7xl mx-auto">
+    <Sidebar mobTypes={mobTypes} variants={variants} versions={versions} />
+
+    <div class="flex-1 p-4 flex flex-col">
+      <div class="bg-[#0a1224]">
+        <div class="relative">
+          <input 
+            type="text" 
+            placeholder="Drowned Jack O'Lantern..." 
+            class="w-full rounded-md bg-[#0a1224] px-10 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+          />
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="mt-4 2xl:max-h-[80vh] md:max-h-[115vh] overflow-y-auto p-5 custom-scrollbar">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5" data-mob-container>
+          {SpookydexDataArchive.map(mob => (
+            <MobCard mob={mob} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { setupFilters } from '@/scripts/filter';
+  import { setupHoverAnimations } from '@/scripts/hoverAnimation';
+    
+  document.addEventListener('DOMContentLoaded', setupFilters);
+  setupHoverAnimations();
+</script>

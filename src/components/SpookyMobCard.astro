@@ -1,0 +1,49 @@
+---
+import type { SpookydexDataInterface } from '@/data/SpookydexData';
+
+interface Props {
+  mob: SpookydexDataInterface;
+}
+
+const { mob } = Astro.props;
+---
+
+<div 
+  class="overflow-hidden rounded-lg bg-[#0a1224] transition-transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20"
+  data-mob-card
+  data-mob-type={mob.mobType}
+  data-variant={mob.variant}
+  data-version={mob.verion}
+  data-obtained={mob.obtained.toString()}
+  data-used-farm={mob.usedFarm?.toString() || "false"}
+  data-name={mob.name}
+  data-probability={mob.probability.toString()}
+  data-when={mob.when?.toString() || "0"}
+>
+  <a href={mob.clip || "#"} target="_blank" rel="noopener noreferrer" class="block">
+    <div class="relative flex h-48 items-center justify-center bg-[#0a1224] p-4">
+      <img
+        src={mob.staticImage}
+        data-animated-src={mob.animation}
+        alt={mob.name}
+        loading="lazy"
+        class="h-full object-contain"
+      />
+    </div>
+    <div class="p-3">
+      <h3 class="text-sm font-medium text-white">{mob.name}</h3>
+      <div class="mt-1 flex items-center text-xs text-gray-400">
+        <span class="mr-2">Probability: {mob.probability}%</span>
+        {mob.obtained ? (
+          <span class="rounded-full bg-green-900 px-2 py-0.5 text-xs font-semibold text-green-300">
+            Obtained
+          </span>
+        ) : (
+          <span class="rounded-full bg-red-900 px-2 py-0.5 text-xs font-semibold text-red-300">
+            Missing
+          </span>
+        )}
+      </div>
+    </div>
+  </a>
+</div>

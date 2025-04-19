@@ -1,0 +1,104 @@
+---
+interface Props {
+  mobTypes: string[];
+  variants: string[];
+  versions: string[];
+}
+
+const { mobTypes, variants, versions } = Astro.props;
+
+const sortOptions = [
+  { id: 'probability', label: 'Probability', value: 'probability' },
+  { id: 'alphabet', label: 'Alphabet a-z', value: 'alphabet' },
+  { id: 'date', label: 'Date', value: 'date' },
+  { id: 'obtained', label: 'Obtained', value: 'obtained' },
+  { id: 'not-obtained', label: 'Not obtained', value: 'not-obtained' },
+  { id: 'used-farm', label: 'Used farm', value: 'used-farm' },
+  { id: 'without-farm', label: 'Without farm', value: 'without-farm' },
+];
+
+const formatMobType = (type: string) => {
+  return type.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
+const formatVariant = (variant: string) => {
+  return variant.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+---
+
+<aside class="w-60 border-r border-gray-800 pl-12 pt-5">
+  <div class="mb-6">
+    <h2 class="mb-3 text-xl font-semibold">Sort by</h2>
+    <div class="space-y-2">
+      {sortOptions.map((option, index) => (
+        <div class="flex items-center">
+          <input
+            type="radio"
+            id={option.id}
+            name="sort-by"
+            value={option.value}
+            checked={index === 0}
+            class="h-4 w-4 border-gray-700 bg-gray-800 text-orange-500 focus:ring-orange-500"
+          />
+          <label for={option.id} class="ml-2 text-sm">{option.label}</label>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="mb-3 text-xl font-semibold">Categories</h2>
+    <div class="space-y-2">
+      {mobTypes.map(type => (
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id={type}
+            data-filter-type="mobType"
+            class="h-4 w-4 rounded border-gray-700 bg-gray-800 text-orange-500 focus:ring-orange-500"
+          />
+          <label for={type} class="ml-2 text-sm">{formatMobType(type)}</label>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="mb-3 text-xl font-semibold">Variants</h2>
+    <div class="space-y-2">
+      {variants.map(variant => (
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id={variant}
+            data-filter-type="variant"
+            class="h-4 w-4 rounded border-gray-700 bg-gray-800 text-orange-500 focus:ring-orange-500"
+          />
+          <label for={variant} class="ml-2 text-sm">{formatVariant(variant)}</label>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div>
+    <h2 class="mb-3 text-xl font-semibold">Version</h2>
+    <div class="space-y-2">
+      {versions.map(version => (
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id={version}
+            data-filter-type="version"
+            class="h-4 w-4 rounded border-gray-700 bg-gray-800 text-orange-500 focus:ring-orange-500"
+          />
+          <label for={version} class="ml-2 text-sm">{version}</label>
+        </div>
+      ))}
+    </div>
+  </div>
+</aside>
+
+<script>
+  import { setupFilters } from '../scripts/filter';
+  document.addEventListener('DOMContentLoaded', setupFilters);
+</script>
