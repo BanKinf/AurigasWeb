@@ -148,6 +148,11 @@ export const faqs = [
         category: "salem"
     },
     {
+        question: "¿Por qué picas con Silk Touch?",
+        answer: "Estoy picando la deepslate con Silk Touch porque es un bloque no renovable que siempre estoy a tiempo de transformar en cobbled deepslate. Esta es la misma razón por la que no uso bone meal ni azada, ya que el musgo también es renovable.",
+        category: "salem"
+    },
+    {
         question: "¿Cómo encuentro una cuádruple witch hut en mi seed?",
         answer: "Si quieres tener una cuádruple witch hut en tu seed y no sabes cómo buscarla, te recomiendo el programa <a href='https://github.com/Cubitect/cubiomes-viewer' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>Cubiomes</a>, con el cual puedes localizar estructuras y biomas específicos en tu seed. Seguramente, si no generaste tu seed con una cuádruple witch hut, no tendrás una o estará muy lejos del spawn. Y, si aún no iniciaste tu survival, puedes generar una seed con una cuádruple witch hut usando el programa que te mencioné anteriormente.",
         category: "salem"
