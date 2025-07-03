@@ -173,6 +173,16 @@ export const faqs = [
         category: "salem"
     },
     {
+        question: "¿Por qué quitas los ores?",
+        answer: "Estoy picando los ores porque quiero reemplazar toda la stone y la deepslate por moss, y no es posible reemplazar los ores. Explicación más detallada <a href='https://www.twitch.tv/aurigas/clip/AnnoyingInquisitiveArtichokePrimeMe-k2vgTrCpHb9J1_g5' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aqui</a>.",
+        category: "salem"
+    },
+    {
+        question: "¿Por qué pones moss?",
+        answer: "Estoy poniendo moss porque quiero realizar una especie de bioma personalizado con la forma del perimetro. Ademas es un bloque renovable y muy facil de colocar, ideal para esta ocacion. Si quieres ver la idea entra <a href='https://gyazo.com/e305658f78d10cf43186b4d4f4e1c702' target='_blank' rel='noopener noreferrer' class='text-blue-700 hover:border-b-1'>aqui</a>.",
+        category: "salem"
+    },
+    {
         question: "¿Por qué guardas la piedra si es renovable?",
         answer: "Guardo la piedra por dos razones: la primera es por una cuestión de tiempo al picar, ya que si tengo que estar separando lo que voy a guardar, tardo mucho más que si guardo todo, y la segunda es porque es útil tener piedra en el almacén general para craftear cosas como repiters, comparadores, etc.",
         category: "salem"
