@@ -1,6 +1,7 @@
 ---
 import { mods } from "@/data/modData";
 import { carpetRules } from "@/data/carpetRulesData";
+import ModsCard from "@/components/ModsCard.astro";
 ---
 
 <section class="container mx-auto px-8 md:px-20 pt-8">
@@ -12,31 +13,8 @@ import { carpetRules } from "@/data/carpetRulesData";
       Descubre y explora los mods que utiliza Aurigas en su survival
     </p>
   </header>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {mods.map((mod) => (
-      <div
-        id={mod.name}
-        class="bg-[#0a1224] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-      >
-        <img
-          src={mod.image}
-          alt={mod.name}
-          class="h-48 object-contain p-5 bg-[#121a2e] w-full"
-        />
-        <div class="p-5">
-          <h2 class="text-2xl font-semibold text-white">{mod.name}</h2>
-          <p class="text-white/60">{mod.author}</p>
-          <a
-            href={mod.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-5 inline-block text-blue-400 hover:text-blue-500 transition-colors duration-200"
-          >
-            <i class="fas fa-external-link-alt"></i> Ver detalles
-          </a>
-        </div>
-      </div>
-    ))}
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    {mods.map((mod) => <ModsCard {...mod} />)}
   </div>
 
   <div class="mt-14" id="carpet">
@@ -59,40 +37,67 @@ import { carpetRules } from "@/data/carpetRulesData";
     <div class="bg-[#0a1224] rounded-xl shadow p-5">
       <table class="w-full text-white">
         <tbody>
-          {carpetRules.map((rule) => (
-            <tr
-              id={rule.name}
-              class="border-b border-white/10 last:border-none hover:bg-white/5 cursor-pointer rule-row"
-              data-name={rule.name}
-              data-value={rule.value}
-              data-desc={rule.desc}
-              data-image={rule.image || ""}
-            >
-              <td class="py-2 font-medium">{rule.name}</td>
-              <td class="py-2 text-right font-bold">{rule.value}</td>
-            </tr>
-          ))}
+          {
+            carpetRules.map((rule) => (
+              <tr
+                id={rule.name}
+                class="border-b border-white/10 last:border-none hover:bg-white/5 cursor-pointer rule-row"
+                data-name={rule.name}
+                data-value={rule.value}
+                data-desc={rule.desc}
+                data-image={rule.image || ""}
+              >
+                <td class="py-2 font-medium">{rule.name}</td>
+                <td class="py-2 text-right font-bold">{rule.value}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<div id="generalModal" class="hidden fixed inset-0 flex items-center justify-center z-50">
+<div
+  id="generalModal"
+  class="hidden fixed inset-0 flex items-center justify-center z-50"
+>
   <div id="generalModalOverlay" class="absolute inset-0 bg-black/60"></div>
-  <div class="relative bg-[#0a1224] rounded-xl p-6 w-11/12 md:w-1/2 max-w-2xl shadow-xl">
-    <button id="closeGeneralModalButton" class="absolute top-3 right-4 text-white cursor-pointer text-3xl">&times;</button>
-    <h2 class="text-xl font-bold text-white mb-4">¿Qué son las Carpet Rules?</h2>
+  <div
+    class="relative bg-[#0a1224] rounded-xl p-6 w-11/12 md:w-1/2 max-w-2xl shadow-xl"
+  >
+    <button
+      id="closeGeneralModalButton"
+      class="absolute top-3 right-4 text-white cursor-pointer text-3xl"
+      >&times;</button
+    >
+    <h2 class="text-xl font-bold text-white mb-4">
+      ¿Qué son las Carpet Rules?
+    </h2>
     <p class="text-white/70">
-      Las Carpet Rules son reglas que agrega el CarpetMod permiten personalizar mecánicas del juego en supervivencia, facilitando la automatización, optimización y control de granjas o sistemas de redstone. Con ellas, puedes mejorar el rendimiento, activar herramientas de depuración y ajustar reglas como la generación de mobs o el stackeo de shulker boxes, haciendo el juego más eficiente sin perder la esencia de supervivencia.
+      Las Carpet Rules son reglas que agrega el CarpetMod permiten personalizar
+      mecánicas del juego en supervivencia, facilitando la automatización,
+      optimización y control de granjas o sistemas de redstone. Con ellas,
+      puedes mejorar el rendimiento, activar herramientas de depuración y
+      ajustar reglas como la generación de mobs o el stackeo de shulker boxes,
+      haciendo el juego más eficiente sin perder la esencia de supervivencia.
     </p>
   </div>
 </div>
 
-<div id="ruleModal" class="hidden fixed inset-0 flex items-center justify-center z-50">
+<div
+  id="ruleModal"
+  class="hidden fixed inset-0 flex items-center justify-center z-50"
+>
   <div id="ruleModalOverlay" class="absolute inset-0 bg-black/85"></div>
-  <div class="relative bg-[#0a1224] rounded-xl p-6 w-11/12 md:max-w-2xl shadow-xl">
-    <button id="closeRuleModalButton" class="absolute top-3 right-4 text-white cursor-pointer text-3xl">&times;</button>
+  <div
+    class="relative bg-[#0a1224] rounded-xl p-6 w-11/12 md:max-w-2xl shadow-xl"
+  >
+    <button
+      id="closeRuleModalButton"
+      class="absolute top-3 right-4 text-white cursor-pointer text-3xl"
+      >&times;</button
+    >
     <h2 id="ruleModalTitle" class="text-2xl font-bold text-white mb-1"></h2>
     <p id="ruleModalDesc" class="text-ms text-white/70 py-2"></p>
     <div id="ruleModalImageContainer" class="hidden">
@@ -104,61 +109,79 @@ import { carpetRules } from "@/data/carpetRulesData";
 
 <script>
   const disableBodyScroll = () => {
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = 'hidden';
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
     document.body.style.paddingRight = `${scrollBarWidth}px`;
   };
 
   const enableBodyScroll = () => {
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
   };
 
   const toggleModal = (modalElement: HTMLElement | null, open = true) => {
     if (modalElement) {
-      modalElement.classList.toggle('hidden', !open);
+      modalElement.classList.toggle("hidden", !open);
       open ? disableBodyScroll() : enableBodyScroll();
     }
   };
 
-  const openGeneralModalButton = document.getElementById('openGeneralModalButton');
-  const closeGeneralModalButton = document.getElementById('closeGeneralModalButton');
-  const generalModal = document.getElementById('generalModal');
-  const generalModalOverlay = document.getElementById('generalModalOverlay');
+  const openGeneralModalButton = document.getElementById(
+    "openGeneralModalButton",
+  );
+  const closeGeneralModalButton = document.getElementById(
+    "closeGeneralModalButton",
+  );
+  const generalModal = document.getElementById("generalModal");
+  const generalModalOverlay = document.getElementById("generalModalOverlay");
 
-  openGeneralModalButton?.addEventListener('click', () => toggleModal(generalModal, true));
-  closeGeneralModalButton?.addEventListener('click', () => toggleModal(generalModal, false));
-  generalModalOverlay?.addEventListener('click', () => toggleModal(generalModal, false));
+  openGeneralModalButton?.addEventListener("click", () =>
+    toggleModal(generalModal, true),
+  );
+  closeGeneralModalButton?.addEventListener("click", () =>
+    toggleModal(generalModal, false),
+  );
+  generalModalOverlay?.addEventListener("click", () =>
+    toggleModal(generalModal, false),
+  );
 
-  const ruleModal = document.getElementById('ruleModal');
-  const ruleModalOverlay = document.getElementById('ruleModalOverlay');
-  const closeRuleModalButton = document.getElementById('closeRuleModalButton');
-  const ruleModalTitle = document.getElementById('ruleModalTitle');
-  const ruleModalValue = document.getElementById('ruleModalValue');
-  const ruleModalDesc = document.getElementById('ruleModalDesc');
-  const ruleModalImageContainer = document.getElementById('ruleModalImageContainer');
-  const ruleModalImage = document.getElementById('ruleModalImage');
+  const ruleModal = document.getElementById("ruleModal");
+  const ruleModalOverlay = document.getElementById("ruleModalOverlay");
+  const closeRuleModalButton = document.getElementById("closeRuleModalButton");
+  const ruleModalTitle = document.getElementById("ruleModalTitle");
+  const ruleModalValue = document.getElementById("ruleModalValue");
+  const ruleModalDesc = document.getElementById("ruleModalDesc");
+  const ruleModalImageContainer = document.getElementById(
+    "ruleModalImageContainer",
+  );
+  const ruleModalImage = document.getElementById("ruleModalImage");
 
-  closeRuleModalButton?.addEventListener('click', () => toggleModal(ruleModal, false));
-  ruleModalOverlay?.addEventListener('click', () => toggleModal(ruleModal, false));
+  closeRuleModalButton?.addEventListener("click", () =>
+    toggleModal(ruleModal, false),
+  );
+  ruleModalOverlay?.addEventListener("click", () =>
+    toggleModal(ruleModal, false),
+  );
 
-  const ruleRows = document.querySelectorAll('.rule-row');
+  const ruleRows = document.querySelectorAll(".rule-row");
   ruleRows.forEach((row) => {
-    row.addEventListener('click', () => {
-      const name = row.getAttribute('data-name') || '';
-      const value = row.getAttribute('data-value') || '';
-      const desc = row.getAttribute('data-desc') || '';
-      const image = row.getAttribute('data-image') || '';
+    row.addEventListener("click", () => {
+      const name = row.getAttribute("data-name") || "";
+      const value = row.getAttribute("data-value") || "";
+      const desc = row.getAttribute("data-desc") || "";
+      const image = row.getAttribute("data-image") || "";
 
       if (ruleModalTitle) ruleModalTitle.textContent = name;
       if (ruleModalValue) ruleModalValue.textContent = `Valor actual: ${value}`;
       if (ruleModalDesc) ruleModalDesc.textContent = desc;
 
       if (image) {
-        if (ruleModalImage instanceof HTMLImageElement) ruleModalImage.src = image;
-        ruleModalImageContainer?.classList.remove('hidden');
+        if (ruleModalImage instanceof HTMLImageElement)
+          ruleModalImage.src = image;
+        ruleModalImageContainer?.classList.remove("hidden");
       } else {
-        ruleModalImageContainer?.classList.add('hidden');
+        ruleModalImageContainer?.classList.add("hidden");
       }
       toggleModal(ruleModal, true);
     });
