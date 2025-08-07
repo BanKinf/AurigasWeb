@@ -1,0 +1,39 @@
+---
+import type { SpookydexDataInterface } from "../data/SpookydexData";
+import CopyButton from "./CopyButton.astro";
+
+interface Props {
+  mob: SpookydexDataInterface;
+}
+
+const { mob } = Astro.props;
+---
+
+<div class="relative">
+  <CopyButton textToCopy={mob.name} />
+
+  <div class="group block">
+    <div
+      class="relative flex h-48 items-center justify-center bg-[#0a1224] p-4"
+    >
+      <img
+        src={mob.staticImage}
+        data-animated-src={mob.animation}
+        alt={mob.name}
+        loading="lazy"
+        class="h-full object-contain"
+      />
+    </div>
+    <div class="p-3">
+      <h3 class="text-sm font-medium text-white">{mob.name}</h3>
+      <div class="mt-1 flex items-center text-xs text-gray-400">
+        <span class="mr-2">Probability: {mob.probability}%</span>
+        <span
+          class="rounded-full bg-red-900 px-2 py-0.5 text-xs font-semibold text-red-300"
+        >
+          Missing
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
