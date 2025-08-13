@@ -45,7 +45,9 @@ const versions = [...new Set(SpookydexDataArchive.map(mob => mob.verion).filter(
 <script>
   import { setupFilters } from '../scripts/filter.ts';
   import { setupHoverAnimations } from '../scripts/hoverAnimation.ts';
-    
-  document.addEventListener('DOMContentLoaded', setupFilters);
-  setupHoverAnimations();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setupFilters();
+    setupHoverAnimations();
+  });
 </script>
