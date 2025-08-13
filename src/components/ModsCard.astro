@@ -1,0 +1,25 @@
+---
+import type { ModData } from "@/data/modData";
+
+interface Props extends ModData {}
+
+const { image, author, link, name } = Astro.props;
+---
+
+<a
+  id={name}
+  target="_blank"
+  rel="noopener noreferrer"
+  href={link}
+  class="block mx-auto w-full bg-[#0a1224] rounded-xl p-6 hover:bg-slate-700 transition-colors duration-200 group"
+>
+  <header class="flex items-center gap-4">
+    <div class="w-16 h-16 flex items-center justify-center flex-shrink-0">
+      <img src={image} alt={`Icon ${name}`} class="w-full" />
+    </div>
+    <div class="flex-1">
+      <h2 class="text-white text-xl font-semibold leading-tight">{name}</h2>
+      <p class="text-gray-400 text-sm mt-1">{author}</p>
+    </div>
+  </header>
+</a>
