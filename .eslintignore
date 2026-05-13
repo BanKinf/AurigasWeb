@@ -1,0 +1,9 @@
+dist
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+package-lock.json
+.astro
+node_modules
+.trash
+_trash

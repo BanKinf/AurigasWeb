@@ -1,4 +1,15 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
-  "unwantedRecommendations": []
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens",
+		"pflannery.vscode-versionlens",
+    "YoavBls.pretty-ts-errors",
+    "EditorConfig.EditorConfig",
+    "wix.vscode-import-cost",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense"
+  ]
 }
