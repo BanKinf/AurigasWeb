@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^9.0.5",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.0",
     "chart.js": "^4.4.8",

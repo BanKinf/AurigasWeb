@@ -55,27 +55,32 @@ const YOUTUBE_ICON_PATH = "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.
   </div>
 </section>
 
-<script define:vars={{ RSS_FEED }}>
+<script>
   async function loadVideos() {
     const container = document.getElementById("videos-container");
 
     if (!container) return;
 
     try {
-      const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_FEED)}`;
-
-      const res = await fetch(proxy, {
+      // YOUR STATIC ASTRO API ROUTE
+      const res = await fetch("/api/streamsRequest", {
         cache: "no-store",
       });
 
-      const xmlText = await res.text();
+      if (!res.ok) {
+        throw new Error("Failed request");
+      }
 
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, "text/xml");
+      type Video = {
+        id: string;
+        title: string;
+        thumbnail: string;
+        url: string;
+      };
 
-      const entries = [...xml.querySelectorAll("entry")];
+      const videos: Video[] = await res.json();
 
-      if (!entries.length) {
+      if (!videos.length) {
         container.innerHTML = `
           <div class="text-center text-white/40 py-20 col-span-full">
             <p>No se pudieron cargar los streams.</p>
@@ -83,21 +88,6 @@ const YOUTUBE_ICON_PATH = "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.
         `;
         return;
       }
-
-      const videos = entries.map((entry) => {
-        const videoId = entry.querySelector("video\\:videoId")?.textContent || entry.querySelector("videoId")?.textContent;
-
-        const title = entry.querySelector("title")?.textContent || "Video";
-
-        const link = entry.querySelector("link")?.getAttribute("href");
-
-        return {
-          id: videoId,
-          title,
-          url: link,
-          thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-        };
-      });
 
       container.innerHTML = videos
         .slice(0, 15)
